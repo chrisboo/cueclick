@@ -1,8 +1,8 @@
-##**Aim**
+##Aim
 
 We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.
 
-##**Scope of project**
+##Scope of project
 
 The web-page provides a site for users to show their presentation slides, and reflects what the audience will see during the presentation.
 
