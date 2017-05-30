@@ -1,0 +1,23 @@
+{
+  "name": "cueclick.git",
+  "version": "1.0.0",
+  "dependencies: {
+
+      }"
+  "description": "We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanneong/cueclick.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanneong/cueclick/issues"
+  },
+  "homepage": "https://github.com/joanneong/cueclick#readme"
+}
