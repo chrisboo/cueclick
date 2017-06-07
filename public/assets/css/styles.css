@@ -14,10 +14,10 @@ body {
 
 /* -- Center element -- */
 .center {
-    max-width: 60%;
-    max-height: 80%;
-    width: 30%;
-    height: 40%;
+    max-width: 30%;
+    height: auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,7 +53,7 @@ form.login {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 5%;
+    padding: 5%;
 }
 
 /* -- Show password -- */
@@ -73,7 +73,6 @@ form.login p {
 }
 
 form.login input[type=password] {
-    max-width: 100%;
     width: 100%;
     height: auto;
 }
