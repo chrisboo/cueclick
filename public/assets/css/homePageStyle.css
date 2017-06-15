@@ -1,0 +1,62 @@
+
+/* -- Background image -- */
+body {
+    background-image: url(../img/wood.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* -- Login element -- */
+#center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15%;
+    box-shadow: 2px 2px 4px 3px #505050;
+    width: 30%;
+    height: auto;
+    position: absolute;
+}
+
+/* -- CueClick Logo -- */
+#logo {
+    max-width: 80%;
+    width: 80%;
+    height: auto;
+    position: relative;
+}
+
+#para {
+    position: relative;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 2vw;
+    max-width: 100%;
+    height: auto;
+    line-height: 2%;
+}
+
+#authorize-button {
+    position: relative;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 1.5vw;
+    margin-bottom: 2%;
+}
+
+#authorize-button:hover {
+    cursor: pointer;
+}
+
+#signout-button {
+    position: relative;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 1.5vw;
+    margin-bottom: 2%;
+}
