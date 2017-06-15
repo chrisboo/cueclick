@@ -13,7 +13,7 @@ To test the currently available code, make sure that you do the following after 
    - Update the code with the respective client key and API key (just index.html for now)
    - Go to the terminal and do `npm install npm install --save @types/gapi` in the project folder
    - Also, do `npm install google-auth-library --save`
-   - And `npm install googleapis`
+   - And `npm install googleapis --save`
 
 Note that although the current code is written in JavaScript without using NodeJS, the
 possibility of switching to nodeJS when refactoring and cleaning up the code after
