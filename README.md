@@ -11,8 +11,8 @@ To test the currently available code, make sure that you do the following after 
         - Google Drive API
         - Google Picker API
    - Update the code with the respective client key and API key (just index.html for now)
-   - To run the code, go to the terminal and type `python -m SimpleHTTPServer 8080`
-   - Go to `localhost:8080` to see the result
+   - To run the code, go to the terminal and type `python -m SimpleHTTPServer 8000`
+   - Go to `localhost:8000` to see the result
 
 ## For future reference
 
