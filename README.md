@@ -1,3 +1,31 @@
+## UPDATE
+
+To test the currently available code, make sure that you do the following after cloning it:
+
+   - Go to https://console.developers.google.com and start a new project (if you don't have one yet)
+   - Go to Credentials --> Create Credentials --> Web Application (Configure the consent screen
+       accordingly if necessary)
+   - After that, create an API Key as well by pressing Create Credentials --> API key
+   - Go to Dashboard --> Enable API and search for and enable three APIS:
+        - Google Slides API
+        - Google Drive API
+        - Google Picker API
+   - Update the code with the respective client key and API key (just index.html for now)
+   - Go to the terminal and do `npm install npm install --save @types/gapi` in the project folder
+   - Also, do `npm install google-auth-library --save`
+   - And `npm install googleapis`
+
+Note that although the current code is written in JavaScript without using NodeJS, the
+possibility of switching to nodeJS when refactoring and cleaning up the code after
+establishing the basic functionality is not entirely discounted...Hence doing all these
+installs.
+
+## Prerequisites
+
+You must have:
+   - node
+   - npm
+
 ## Aim
 
 We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.
