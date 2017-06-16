@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cue Click, You Click</title>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Imports the css for the homepage -->
+    <link rel="stylesheet" href="css/homePageStyle.css">
+  </head>
+
+  <body>
+
+    <div id="center">
+      <img id="logo" src="../img/logowshadow.png" alt="logo">
+      <p id="para">Get your google slides!</p>
+
+      <!--Add buttons to initiate auth sequence and sign out-->
+      <button id="authorize-button" style="display: none;">Sign in</button>
+      <button id="signout-button" style="display: none;">Sign Out</button>
+    </div>
+
+    <script src="../js/homePage.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>
