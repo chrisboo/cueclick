@@ -2,6 +2,8 @@
 
 To test the currently available code, make sure that you do the following after cloning it:
 
+   - Make sure you have Node installed: https://nodejs.org/en/download/
+
    - Go to https://console.developers.google.com and start a new project (if you don't have one yet)
    - Go to Credentials --> Create Credentials --> Web Application (Configure the consent screen
        accordingly if necessary)
@@ -11,6 +13,10 @@ To test the currently available code, make sure that you do the following after 
         - Google Drive API
         - Google Picker API
    - Update the code with the respective client key and API key (meaning the code in `homePage.js` which is in the `js` folder
+   - Go to the terminal/command line, and type in the following commands:
+        - `npm install express`
+        - `npm install express-static`
+        - `npm install socket.io`
    - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
    - Go to `localhost:8000` to see the result on your desktop
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
@@ -18,7 +24,7 @@ To test the currently available code, make sure that you do the following after 
 
 ## For future reference
 
-Relevant npm packages:
+Other relevant npm packages:
 
    - Go to the terminal and do `npm install npm install --save @types/gapi` in the project folder
    - Also, do `npm install google-auth-library --save`
