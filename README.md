@@ -10,9 +10,11 @@ To test the currently available code, make sure that you do the following after 
         - Google Slides API
         - Google Drive API
         - Google Picker API
-   - Update the code with the respective client key and API key (just index.html for now)
-   - To run the code, go to the terminal and type `python -m SimpleHTTPServer 8000`
-   - Go to `localhost:8000` to see the result
+   - Update the code with the respective client key and API key (meaning the code in `homePage.js` which is in the `js` folder
+   - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
+   - Go to `localhost:8000` to see the result on your desktop
+   - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
+   along with the port (e.g. 129.168.1.209:8000) to see the mobile site
 
 ## For future reference
 
