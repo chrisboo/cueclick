@@ -1,18 +1,16 @@
 // Enter an API key from the Google API Console:
 //   https://console.developers.google.com/apis/credentials
 var apiKey = 'AIzaSyCSjg3rrx6Obl4ngZsDlFlV4degUJSMvbw';
-// Enter the API Discovery Docs that describes the APIs you want to
-// access. In this example, we are accessing the People API, so we load
-// Discovery Doc found here: https://developers.google.com/people/api/rest/
+// Enter the API Discovery Docs that describes the APIs you want to access
 var discoveryDocs = ["https://slides.googleapis.com/$discovery/rest?version=v1"];
 // Enter a client ID for a web application from the Google API Console:
 //   https://console.developers.google.com/apis/credentials?project=_
 // In your API Console project, add a JavaScript origin that corresponds
-//   to the domain where you will be running the script.
+//   to the domain where you will be running the script
 var clientId = '408869653199-ruoft30vmoqrgpku3us3qd2leb3k6tp1.apps.googleusercontent.com';
 // Enter one or more authorization scopes. Refer to the documentation for
 // the API or https://developers.google.com/people/v1/how-tos/authorizing
-// for details.
+// for details
 var scopes = 'https://www.googleapis.com/auth/presentations.readonly https://www.googleapis.com/auth/drive';
 
 var authorizeButton = document.getElementById('authorize-button');
@@ -21,6 +19,8 @@ var user;
 var authResponse;
 var oauthToken;
 var pickerApiLoaded = false;
+var presentationId;
+var presentation;
 
 function handleClientLoad() {
     // Load the API client and auth2 library
@@ -28,6 +28,7 @@ function handleClientLoad() {
     //Load the Picker API
     gapi.load('picker', onPickerApiLoad);
 }
+
 function initClient() {
     gapi.auth2.init({
         apiKey: apiKey,
@@ -74,9 +75,11 @@ function updateSigninStatus(isSignedIn) {
       signoutButton.style.display = 'none';
     }
 }
+
 function handleAuthClick(event) {
     gapi.auth2.getAuthInstance().signIn();
 }
+
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
 }
@@ -100,7 +103,28 @@ function pickerCallback(data) {
       if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
         var doc = data[google.picker.Response.DOCUMENTS][0];
         url = doc[google.picker.Document.URL].replace('edit', 'present');
-        alert('You picked ' + url);
+        var item_name = doc[google.picker.Document.NAME];
+        alert('You picked ' + item_name);
+        presentationId = doc[google.picker.Document.ID];
+        getPresentation();
         window.location.replace(url);
     }
+}
+
+// Get the presentation by making a GET request to the Google Slides API
+// and store the Presentation object in a variable
+function getPresentation() {
+    // Create a new XMLHttpRequest to get the corresponding slides object
+    var xhr = new XMLHttpRequest(),
+        method = 'GET',
+        url = "https://slides.googleapis.com/v1/presentations/" + presentationId;
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Get the JSON object (the Presentation) from the returned string
+            presentation = JSON.parse(xhr.responseText);
+        }
+    }
+    xhr.send();
 }
