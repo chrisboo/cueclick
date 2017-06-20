@@ -21,6 +21,7 @@ var oauthToken;
 var pickerApiLoaded = false;
 var presentationId;
 var presentation;
+var presentationChosen = false;
 
 function handleClientLoad() {
     // Load the API client and auth2 library
@@ -97,17 +98,12 @@ function createPicker() {
     }
 }
 
-// Callback implementation
+// Callback implementation - get the Presentation object using its ID
 function pickerCallback(data) {
-      var url = 'nothing';
       if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
         var doc = data[google.picker.Response.DOCUMENTS][0];
-        url = doc[google.picker.Document.URL].replace('edit', 'present');
-        var item_name = doc[google.picker.Document.NAME];
-        alert('You picked ' + item_name);
         presentationId = doc[google.picker.Document.ID];
         getPresentation();
-        window.location.replace(url);
     }
 }
 
@@ -124,7 +120,21 @@ function getPresentation() {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Get the JSON object (the Presentation) from the returned string
             presentation = JSON.parse(xhr.responseText);
+            presentationChosen = true;
+            displayPresentation();
         }
     }
     xhr.send();
+}
+
+// Display the chosen presentation in an iframe and resize the iframe
+// according to the height and width of the slides
+function displayPresentation() {
+    // Get rid of the center block
+    var center = document.getElementById('center');
+    center.style.display = "none";
+    // Display the presentation in an iframe
+    var iframe = document.getElementById('slides');
+    iframe.style.display = "block";
+    iframe.src = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
 }
