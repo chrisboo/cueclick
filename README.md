@@ -22,19 +22,6 @@ To test the currently available code, make sure that you do the following after 
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
    along with the port (e.g. 129.168.1.209:8000) to see the mobile site
 
-## For future reference
-
-Other relevant npm packages:
-
-   - Go to the terminal and do `npm install npm install --save @types/gapi` in the project folder
-   - Also, do `npm install google-auth-library --save`
-   - And `npm install googleapis --save`
-   - And `npm install google-picker`
-
-The current JavaScript in `homePage.js` is written without the use of NodeJS, but there is
-a possibility that after the basic functionalities have been established, the code will be
-modified to NodeJS instead.
-
 ## Aim
 
 We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.
