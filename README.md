@@ -33,6 +33,16 @@ Before the presentation:
    - Press on `Embed`, and `Publish`
    - Use CueClick
 
+## Concerns
+
+There are several concerns associated with the current application design:
+
+- Users have to publish their presentations before they can use the application
+
+Although their presentations are not indexed by Google at the present moment, it
+is hard to say whether this trend will last. This makes it less appealing to users
+who prefer to keep their presentations private.
+
 ## Aim
 
 We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.
