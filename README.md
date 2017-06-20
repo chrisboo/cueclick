@@ -1,6 +1,6 @@
 ## UPDATE
 
-#### Note to developers
+### Note to developers
 
 To test the currently available code, make sure that you do the following after cloning it:
 
@@ -24,14 +24,14 @@ To test the currently available code, make sure that you do the following after 
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
    along with the port (e.g. 129.168.1.209:8000) to see the mobile site
 
-#### Note to clients (or developers testing the program)
+### Note to clients (or developers testing the program)
 
 Before the presentation:
 
    - Go to `google drive` --> your intended presentation
    - Go to `File` at the top left hand corner, and press on `Publish to the web...`
    - Press on `Embed`, and `Publish`
-   - Use CueClick 
+   - Use CueClick
 
 ## Aim
 
