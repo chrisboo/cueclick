@@ -17,6 +17,8 @@ To test the currently available code, make sure that you do the following after 
         - `npm install express`
         - `npm install express-static`
         - `npm install socket.io`
+    (Alternatively, simply type `npm install` while in the project folder since the dependencies
+    are already stated in `package.json`)
    - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
    - Go to `localhost:8000` to see the result on your desktop
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
@@ -26,7 +28,7 @@ To test the currently available code, make sure that you do the following after 
 
 There are several ideas to be implemented/ considered:
 
-- Remote Control of slides (High priority)
+- Update mobile end when there are slide changes on desktop
 - Proper sign out procedure
 - An option to start another presentation?
 - Presenter's notes on mobile
