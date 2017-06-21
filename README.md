@@ -22,15 +22,14 @@ To test the currently available code, make sure that you do the following after 
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
    along with the port (e.g. 129.168.1.209:8000) to see the mobile site
 
-## Concerns
+## TODO
 
-There are several concerns associated with the current application design:
+There are several ideas to be implemented/ considered:
 
-- Users have to publish their presentations before they can use the application
-
-Although their presentations are not indexed by Google at the present moment, it
-is hard to say whether this trend will last. This makes it less appealing to users
-who prefer to keep their presentations private.
+- Remote Control of slides (High priority)
+- Proper sign out procedure
+- An option to start another presentation?
+- Presenter's notes on mobile
 
 ## Aim
 
