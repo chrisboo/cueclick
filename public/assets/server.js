@@ -1,8 +1,8 @@
 // This is the server-side file of our mobile remote controller app.
 // It initializes socket.io and a new express instance and controls the routing.
-// Start it by running server.js on your computer
+// Start it by running node server.js on your computer
 
-// Create a server instance
+// Create a socket.io server instance
 var express = require('express');
 var app = express();
 var server  = require('http').Server(app);
@@ -18,7 +18,7 @@ app.use("/css", static(__dirname + '/css'));
 app.use("/js", static(__dirname + '/js'));
 app.use("/img", static(__dirname + '/img'));
 
-// Index route
+// Index route -- home page for website and mobile site
 app.get('/', function (req, res) {
     // Basic user agent check - test for mobiles
     var userAgent = req.headers['user-agent'];
@@ -31,4 +31,28 @@ app.get('/', function (req, res) {
     }
 });
 
-// Set up dynamic page route
+// SOCKET IO
+io.on('connection', function (socket) {
+
+    // Shows list of connected clients on console whenever a new client connects
+    io.clients(function(error, clients) {
+        if (error) throw error;
+        console.log(clients);
+    });
+
+    // Notify all connected clients except sender when there are slide changes
+    socket.on('next-slide', function() {
+        socket.broadcast.emit('next-slide');
+    });
+
+    socket.on('previous-slide', function() {
+        socket.broadcast.emit('previous-slide');
+    });
+
+    // Closes the current socket.io server when sign out occurs
+    socket.on('sign-out', function() {
+        console.log("Goodbye!");
+        io.close();
+    });
+
+});

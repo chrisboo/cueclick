@@ -20,25 +20,28 @@
       <button id="signout-button" style="display: none;">Sign Out</button>
     </div>
 
-    <!-- Slides will be displayed in the iframe after login has occurred
-    <iframe id="slides" frameborder="0" allowfullscreen sandbox>
-        <p>Sorry, but your browser does not support iframes. D:</p>
-    </iframe> -->
-
-    <iframe id='slides' frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-        <p>Sorry, your browser does not support iframes D:</p>
+    <iframe id="slides" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+        <p>Sorry, there seems to be a problem :/
+            - Check that you have published your presentation via Google drive
+            - Check if your browser can support iframes
+        </p>
     </iframe>
 
-    <!-- Only begin initializing homePage.js after google API has loaded -->
-    <script src="../js/homePage.js"></script>
+    <!-- Script for SOCKET.IO -->
+    <script src="/socket.io/socket.io.js"></script>
 
     <!-- Script for moving to next and previous slides -->
-    <script src="../js/webControl.js"></script>
+    <script src="../js/webControls.js"></script>
+
+    <!-- Only begin initializing homePage.js after google API has loaded -->
+    <!-- Script for selecting a presentation and displaying the presentation in an iframe -->
+    <script src="../js/homePage.js"></script>
 
     <!-- Script for Google API -->
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+
   </body>
 </html>

@@ -1,3 +1,11 @@
+// Create new socket instance
+var socket = io.connect('/');
+// Show client id on phone when a new phone client connects on mobile
+socket.on('connect', function() {
+    alert("Mobile client connected!");
+    alert("Mobile id: " + socket.id);
+});
+
 // Add event listeners for touchstart (new touch on the surface)
 // and touchmove (when user moves a touch point along the surface)
 document.addEventListener('touchstart', handleTouchStart, false);
@@ -12,7 +20,7 @@ function handleTouchStart(evt) {
 };
 
 function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
+    if ( !xDown || !yDown ) {
         return;
     }
 
@@ -24,12 +32,14 @@ function handleTouchMove(evt) {
 
     if (Math.abs( xDiff ) > Math.abs( yDiff )) {
         if ( xDiff > 0 ) {
-            // Swipe towards left
+            // Swipe towards left <--
             alert("Next Slide!");
+            socket.emit('next-slide');
 
         } else {
-            // Swipe towards right
+            // Swipe towards right -->
             alert("Previous Slide!");
+            socket.emit('previous-slide');
         }
     }
     // Reset values

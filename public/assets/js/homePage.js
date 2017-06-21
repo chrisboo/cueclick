@@ -21,7 +21,6 @@ var oauthToken;
 var pickerApiLoaded = false;
 var presentationId;
 var presentation;
-var presentationChosen = false;
 
 function handleClientLoad() {
     // Load the API client and auth2 library
@@ -120,15 +119,13 @@ function getPresentation() {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // Get the JSON object (the Presentation) from the returned string
             presentation = JSON.parse(xhr.responseText);
-            presentationChosen = true;
             displayPresentation();
         }
     }
     xhr.send();
 }
 
-// Display the chosen presentation in an iframe and resize the iframe
-// according to the height and width of the slides
+// Display the chosen presentation in an iframe
 function displayPresentation() {
     // Get rid of the center block
     var center = document.getElementById('center');
@@ -137,4 +134,7 @@ function displayPresentation() {
     var iframe = document.getElementById('slides');
     iframe.style.display = "block";
     iframe.src = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
+    iframe.onload = function() {
+        initWebControl();
+    }
 }
