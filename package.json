@@ -1,9 +1,11 @@
 {
   "name": "cueclick.git",
   "version": "1.0.0",
-  "dependencies: {
-
-      }"
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-static": "^1.1.0",
+    "socket.io": "^2.0.3"
+  },
   "description": "We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.",
   "main": "index.js",
   "scripts": {
