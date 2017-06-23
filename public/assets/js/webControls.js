@@ -55,7 +55,7 @@ socket.on('next-slide', function() {
         // Check if the current slide has been loaded into the iframe
         if (isReady) {
             // Check if there is a next slide
-            if (currentSlideNo >= maxSlidesNo) {
+            if (currentSlideNo >= (maxSlidesNo - 1)) {
                 alert("There is no next slide!");
             } else {
                 isReady = false;
