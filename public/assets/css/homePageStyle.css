@@ -55,8 +55,14 @@ body {
 }
 
 #signout-button {
-    position: relative;
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 1.5vw;
-    margin-bottom: 2%;
+    position: fixed;
+    bottom: 1.5%;
+    right: 1.5%;
+    width: 4.5%;
+    height: auto;
+    display: none;
+}
+
+#slides {
+    display: none;
 }

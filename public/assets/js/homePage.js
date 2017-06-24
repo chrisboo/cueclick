@@ -15,6 +15,7 @@ var scopes = 'https://www.googleapis.com/auth/presentations.readonly https://www
 
 var authorizeButton = document.getElementById('authorize-button');
 var signoutButton = document.getElementById('signout-button');
+var center = document.getElementById('center');
 var user;
 var authResponse;
 var oauthToken;
@@ -36,15 +37,15 @@ function initClient() {
         clientId: clientId,
         scope: scopes
     }).then(function () {
-      // Listen for sign-in state changes.
+      // Listen for sign-in state changes
       gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+      // Handle the initial sign-in state
+      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       // Set the current Google User
       gapi.auth2.getAuthInstance().currentUser.listen(updateUser);
-      // Handle the initial sign-in state.
-      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       authorizeButton.onclick = handleAuthClick;
       signoutButton.onclick = handleSignoutClick;
-    });
+  });
 }
 
 // Callback to make sure that the Picker API has loaded
@@ -53,10 +54,23 @@ function onPickerApiLoad() {
   createPicker();
 }
 
+function updateSigninStatus(isSignedIn) {
+    if (isSignedIn) {
+      center.style.display = 'none';
+      signoutButton.style.display = 'block';
+      createPicker();
+    } else {
+      signoutButton.style.display = 'none';
+    }
+}
+
 // Store the current Google user
 function updateUser(gUser) {
-  user = gUser;
-  updateToken();
+    user = gUser;
+    // If the user is a Google User, update the user token
+    if (user.Zi != null) {
+        updateToken();
+    }
 }
 
 // Store the access token
@@ -65,23 +79,14 @@ function updateToken() {
   oauthToken = authResponse.access_token;
 }
 
-function updateSigninStatus(isSignedIn) {
-    if (isSignedIn) {
-      authorizeButton.style.display = 'none';
-      signoutButton.style.display = 'block';
-      createPicker();
-    } else {
-      authorizeButton.style.display = 'block';
-      signoutButton.style.display = 'none';
-    }
-}
-
 function handleAuthClick(event) {
     gapi.auth2.getAuthInstance().signIn();
 }
 
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
+    // Reload the page on signout
+    window.location.reload();
 }
 
 // Create and render a Picker object for picking user slides
@@ -127,9 +132,6 @@ function getPresentation() {
 
 // Display the chosen presentation in an iframe
 function displayPresentation() {
-    // Get rid of the center block
-    var center = document.getElementById('center');
-    center.style.display = "none";
     // Display the presentation in an iframe
     var iframe = document.getElementById('slides');
     iframe.style.display = "block";

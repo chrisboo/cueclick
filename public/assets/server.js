@@ -48,11 +48,4 @@ io.on('connection', function (socket) {
     socket.on('previous-slide', function() {
         socket.broadcast.emit('previous-slide');
     });
-
-    // Closes the current socket.io server when sign out occurs
-    socket.on('sign-out', function() {
-        console.log("Goodbye!");
-        io.close();
-    });
-
 });
