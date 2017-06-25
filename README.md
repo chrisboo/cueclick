@@ -3,7 +3,6 @@
 To test the currently available code, make sure that you do the following after cloning it:
 
    - Make sure you have Node installed: https://nodejs.org/en/download/
-
    - Go to https://console.developers.google.com and start a new project (if you don't have one yet)
    - Go to Credentials --> Create Credentials --> Web Application (Configure the consent screen
        accordingly if necessary)
@@ -12,8 +11,9 @@ To test the currently available code, make sure that you do the following after 
         - Google Slides API
         - Google Drive API
         - Google Picker API
-        
-   -join group: https://groups.google.com/forum/#!forum/risky-access-by-unreviewed-apps
+   - Note that you must join this Google group for now before testing the application: https://groups.google.com/forum/#!forum/risky-access-by-unreviewed-apps
+   This is because we have yet to submit this form: https://support.google.com/code/contact/oauth_app_verification which will be done at a
+   later date
    - Update the code with the respective client key and API key (meaning the code in `homePage.js` which is in the `js` folder
    - Go to the terminal/command line, and type in the following commands:
         - `npm install express`
@@ -22,13 +22,11 @@ To test the currently available code, make sure that you do the following after 
 
     (Alternatively, simply type `npm install` while in the project folder since the dependencies
     are already stated in `package.json`)
+
    - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
-  
    - Go to `localhost:8000` to see the result on your desktop
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
    along with the port (e.g. 129.168.1.209:8000) to see the mobile site
-   
-   
 
 ## TODO
 
