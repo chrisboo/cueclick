@@ -1,5 +1,5 @@
 // Display for the current slide
-var iframe;
+var iframe = document.getElementById('slides');
 // Default url for any presentation
 var defaultUrl;
 // An array of all the slides in the chosen presentation
@@ -18,12 +18,21 @@ var isReady = true;
 // Initialise variables, and ensure that chosen presentation has been loaded
 // before remote control is allowed
 function initWebControl() {
-    iframe = document.getElementById('slides');
     defaultUrl = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
     slides = presentation.slides;
     currentSlideNo = 0;
     maxSlidesNo = presentation.slides.length;
     isInitialised = true;
+}
+
+// Reset the variables and view in the iframe when new presentation is picked
+function resetIFrame() {
+    defaultUrl = null;
+    slides = null;
+    isInitialised = false;
+    currentSlideNo = null;
+    maxSlidesNo = null;
+    isReady = true;
 }
 
 // Ensure that the iframe has loaded before proceeding to prevent asynchronous

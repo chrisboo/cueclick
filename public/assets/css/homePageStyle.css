@@ -1,4 +1,3 @@
-
 /* -- Background image -- */
 body {
     background-image: url(../img/wood.png);
@@ -43,6 +42,7 @@ body {
     line-height: 2%;
 }
 
+/* -- Sign in button -- */
 #authorize-button {
     position: relative;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
@@ -54,22 +54,8 @@ body {
     cursor: pointer;
 }
 
-#signout-button {
-    display: none;
-}
-
-#bottom-button {
-    position: fixed;
-    bottom: 1.5%;
-    right: 1.5%;
-    width: 4.5vw;
-    height: 4.5vw;
-    z-index: 1;
-}
-
-#top-button {
-    position: fixed;
-    bottom: 1.5%;
+/* -- Style for button overlays -- */
+.overlay {
     right: 1.5%;
     width: 4.5vw;
     height: 4.5vw;
@@ -80,11 +66,69 @@ body {
     opacity: 0;
 }
 
-#top-button:hover {
+.overlay:hover {
     opacity: 0.4;
     transition: 200ms ease-out;
 }
 
+/* -- Style for side buttons -- */
+#side-buttons {
+    position: fixed;
+    bottom: 1.5%;
+    right: 1.5%;
+    width: 4.5vw;
+    height: 11vw;
+}
+
+/* -- New presentation button -- */
+#new-presentation {
+    position: absolute;
+    display: none;
+    top: 0;
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+#bottom-presentation {
+    position: absolute;
+    top: 0;
+    width: 4.5vw;
+    height: 4.5vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    border: 0;
+    font-size: 4vw;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
+
+#top-presentation {
+    position: absolute;
+    top: 0;
+}
+
+/* -- Sign out button -- */
+#signout-button {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    width: 4.5vw;
+    height: 4.5vw;
+}
+
+#bottom-button {
+    position: absolute;
+    bottom: 0;
+    width: 4.5vw;
+    height: 4.5vw;
+    z-index: 1;
+}
+
+#top-button {
+    position: absolute;
+    bottom: 0;
+}
+
+/* -- iframe -- */
 #slides {
     display: none;
 }
