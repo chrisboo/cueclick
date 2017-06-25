@@ -70,9 +70,11 @@ function updateSigninStatus(isSignedIn) {
 // Store the current Google user
 function updateUser(gUser) {
     user = gUser;
-    // If the user is a Google User, update the user token
-    if (user.Zi != null) {
-        updateToken();
+    if (user != null && user != undefined) {
+        // If the user is a Google User, update the user token
+        if (user.Zi != null) {
+            updateToken();
+        }
     }
 }
 
