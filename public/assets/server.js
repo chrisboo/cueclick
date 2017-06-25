@@ -48,4 +48,5 @@ io.on('connection', function (socket) {
     socket.on('previous-slide', function() {
         socket.broadcast.emit('previous-slide');
     });
+
 });
