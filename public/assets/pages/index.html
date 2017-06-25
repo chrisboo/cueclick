@@ -15,15 +15,25 @@
       <img id="logo" src="../img/logowshadow.png" alt="logo">
       <p id="para">Get your google slides!</p>
 
-      <!-- Add buttons to initiate auth sequence and sign out -->
+      <!-- Add buttons to initiate auth sequence -->
       <button id="authorize-button">Sign in</button>
     </div>
 
-    <div id="signout-button">
-        <img id="bottom-button" src="../img/signoutButton.png" alt="signoutButton">
-        <button id="top-button"></button>
+    <div id="side-buttons">
+          <!-- Add button for picking new presentation -->
+        <div id="new-presentation">
+            <button id="bottom-presentation">+</button>
+            <button class="overlay" id="top-presentation"></button>
+        </div>
+
+        <!-- Add button for sign out -->
+        <div id="signout-button">
+            <img id="bottom-button" src="../img/signoutButton.png" alt="signoutButton">
+            <button class="overlay" id="top-button"></button>
+        </div>
     </div>
 
+    <!-- Iframe to display the chosen presentation -->
     <iframe id="slides" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
         <p>Sorry, there seems to be a problem :/
             - Check that you have published your presentation via Google drive
