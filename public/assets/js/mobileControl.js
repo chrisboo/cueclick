@@ -1,6 +1,16 @@
 // Create new socket instance
 var socket = io.connect('/');
 
+// Listen for initial presenter note event
+socket.on('presenter note', function(notes) {
+    displayNotes(notes);
+});
+
+// Display the presenter note on mobile
+function displayNotes(notes) {
+    alert(notes);
+}
+
 // Add event listeners for touchstart (new touch on the surface)
 // and touchmove (when user moves a touch point along the surface)
 document.addEventListener('touchstart', handleTouchStart, false);

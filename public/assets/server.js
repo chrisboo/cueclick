@@ -49,4 +49,9 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('previous-slide');
     });
 
+    // Notify all connected clients to load the presenter notes
+    socket.on('presenter note', function(notes) {
+        socket.broadcast.emit('presenter note', notes);
+    });
+
 });
