@@ -55,8 +55,7 @@ To test the currently available code, make sure that you do the following after 
         - `npm install express-static`
         - `npm install socket.io`
 
-    (Alternatively, simply type `npm install` while in the project folder since the dependencies
-    are already stated in `package.json`)
+    Alternatively, simply type `npm install` while in the project folder since the dependencies are already stated in `package.json`
 
    - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
    - Go to `localhost:8000` to see the result on your desktop
