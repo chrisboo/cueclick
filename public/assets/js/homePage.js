@@ -98,6 +98,8 @@ function handleSignoutClick(event) {
 function openNewPresentation() {
     var pickedBefore = (iframe.style.display === 'block');
     if (pickedBefore) {
+        // Return the mobile page to the instruction page during the selection
+        socket.emit('re-choosing presentation');
         resetIFrame();
     }
     createPicker();
@@ -150,6 +152,7 @@ function displayPresentation() {
     var iframe = document.getElementById('slides');
     iframe.style.display = "block";
     iframe.src = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
+    socket.emit('presentation chosen');
     iframe.onload = function() {
         initWebControl();
     }

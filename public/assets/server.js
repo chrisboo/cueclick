@@ -40,6 +40,17 @@ io.on('connection', function (socket) {
         console.log(clients);
     });
 
+    // Notify all connected clients except sender when a valid presentation is chosen
+    socket.on('presentation chosen', function() {
+        socket.broadcast.emit('presentation chosen');
+        console.log("presentation chosen");
+    });
+
+    // Notify all connected clients except sender when a new presentation is being selected
+    socket.on('re-choosing presentation', function() {
+        socket.broadcast.emit('re-choosing presentation');
+    });
+
     // Notify all connected clients except sender when there are slide changes
     socket.on('next-slide', function() {
         socket.broadcast.emit('next-slide');

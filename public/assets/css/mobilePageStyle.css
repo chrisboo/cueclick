@@ -24,8 +24,13 @@ body {
     align-items: center;
 }
 
-p {
+#instructions.p {
     margin: 10%;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     font-size: 5vw;
+}
+
+/* -- Presenter note segment -- */
+#note {
+    display: none;
 }

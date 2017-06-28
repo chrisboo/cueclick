@@ -1,14 +1,39 @@
 // Create new socket instance
 var socket = io.connect('/');
+// Segment for displaying the presenter note
+var presenterNotes = document.getElementById('note');
 
-// Listen for initial presenter note event
+// Make presenter note div disappear, and instructions div reappear when
+// new slides are being chosen
+socket.on('re-choosing presentation', function() {
+    presenterNotes.style.display = 'none';
+    instructions.style.display = 'block';
+});
+
+// Make presenter note div appear after a valid presentation is chosen
+socket.on('presentation chosen', function() {
+    initNotesDisplay();
+});
+
+// Prepares the segment for the script to be displayed
+function initNotesDisplay() {
+    presenterNotes.style.display = 'block';
+    instructions.style.display = 'none';
+}
+
+// Listen for presenter note event
 socket.on('presenter note', function(notes) {
     displayNotes(notes);
 });
 
 // Display the presenter note on mobile
 function displayNotes(notes) {
-    alert(notes);
+    var oldContent = document.getElementById('script');
+    var para = document.createElement("p");
+    para.id = 'script';
+    var newContent = document.createTextNode(notes);
+    para.appendChild(newContent);
+    presenterNotes.replaceChild(para, oldContent);
 }
 
 // Add event listeners for touchstart (new touch on the surface)
