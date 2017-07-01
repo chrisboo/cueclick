@@ -1,0 +1,72 @@
+/* -- Background image -- */
+body {
+    background-image: url(../img/wood.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* -- Center element -- */
+.center {
+    max-width: 80%;
+    height: auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15%;
+    box-shadow: 2px 2px 4px 3px #505050;
+    position: absolute;
+    z-index: 1;
+}
+
+/* -- Logo style -- */
+#logo {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    height: auto;
+}
+
+/* -- Form styles -- */
+form.login {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+#password {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5%;
+}
+
+/* -- Show password -- */
+#eye {
+    height: auto;
+    max-width: 15%;
+    margin-right: 3%;
+}
+
+/* -- Login element -- */
+form.login p {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 5vw;
+    max-width: 100%;
+    height: auto;
+    line-height: 2%;
+}

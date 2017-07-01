@@ -6,29 +6,33 @@
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Stylesheet for  mobile site -->
-    <link rel="stylesheet" type="text/css" href="../css/mobilePageStyle.css">
+    <!-- Stylesheet for  mobile login site -->
+    <link rel="stylesheet" type="text/css" href="../css/mobileStyle.css">
 
   </head>
 
   <body>
 
-    <!-- Instructions for slides navigation -->
-    <div id="instructions">
-        <p>Swipe <b>left</b> to go to the previous slide.</p>
+    <div class="center">
+        <!-- Logo -->
+        <img id="logo" src="../img/logowshadow.png" alt="cueclick logo">
 
-        <p>Swipe <b>right</b> to go to the next slide.</p>
+        <!-- Login element -->
+        <form class="login" action="#" method="post">
+            <p>Enter <i>your</i> secret key</p>
+            <div id="password">
+                <img id ="eye" src="../img/eye.png" alt="eye">
+                <input type="password" id="pwd" name="secretKey" placeholder="ilovecueclick"
+                  autofocus autocomplete="off" required/>
+            </div>
+        </form>
     </div>
 
-    <!-- Display for presenter note -->
-    <div id="note">
-        <p id="script"></p>
-    </div>
+    <!-- JavaScript file for password display when eye is pressed -->
+    <script src="../js/showPassword.js"></script>
 
-    <!-- Script for SOCKET.IO -->
-    <script src="/socket.io/socket.io.js"></script>
+    <!-- JavaScript file for dealing with the form submission -->
+    <script src="../js/mobileLogin.js"></script>
 
-    <!-- Script for mobile controls -->
-    <script src="../js/mobileControl.js"></script>
   </body>
 </html>
