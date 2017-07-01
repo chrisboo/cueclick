@@ -1,6 +1,7 @@
-// This is the server-side file of our mobile remote controller app.
-// It initializes socket.io and a new express instance and controls the routing.
-// Start it by running node server.js on your computer
+/* This is the server-side file of our mobile remote controller app.
+   It initializes socket.io and a new express instance and controls the routing.
+   Start it by running node server.js on your computer
+*/
 
 // Create a socket.io server instance
 var express = require('express');
@@ -8,6 +9,11 @@ var app = express();
 var server  = require('http').Server(app);
 var io      = require('socket.io')(server);
 var static  = require('express-static');
+var secret = "cueclick";
+
+// Importing middleware for secret key validation
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 // Listen on port 8000
 // Uses process.env.PORT for Heroku deployment as Heroku will dynamically assign a port
@@ -17,6 +23,11 @@ server.listen(process.env.PORT || 8000);
 app.use("/css", static(__dirname + '/css'));
 app.use("/js", static(__dirname + '/js'));
 app.use("/img", static(__dirname + '/img'));
+
+// Add body parser and validator to the middleware stack as well
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 // Index route -- home page for website and mobile site
 app.get('/', function (req, res) {
@@ -29,6 +40,36 @@ app.get('/', function (req, res) {
         // Send desktop to the main site
         res.sendFile(__dirname + '/pages/index.html');
     }
+});
+
+// Dealing with secret key input
+app.post('/secretKey', function(req, res) {
+
+    // Store the secret key in a variable first
+    var secretKey = req.body.secretKey;
+
+    // Check that the secret key field is not empty (even though we have already
+    // made the field a required field)
+    req.checkBody('secretKey', 'Secret key required').notEmpty();
+
+    // Trim and escape the secret key field
+    req.sanitize('secretKey').escape();
+    req.sanitize('secretKey').trim();
+
+    // Run the validators
+    var error = req.validationErrors();
+
+    if (error) {
+        // Send users to an error page if there is really an error (not supposed to happen!)
+        res.sendFile(__dirname + '/pages/error.html');
+        return;
+    } else {
+        // Otherwise, the data is valid
+        // Check if the secret key matches with any key in the database (current session)
+        // TO BE IMPLEMENTED PROPERLY
+        res.sendFile(__dirname + '/pages/mobileControl.html');
+    }
+
 });
 
 // SOCKET IO
