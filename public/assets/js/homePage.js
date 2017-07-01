@@ -1,3 +1,11 @@
+/* Description: This JavaScript file controls the following processes:
+    - Google authentication (Sign in)
+    - Appearance of Google Picker
+    - Prepares display of iframe, key, status, and side buttons
+    - Sign out
+    - Selection of new presentation
+*/
+
 // Enter an API key from the Google API Console:
 //   https://console.developers.google.com/apis/credentials
 var apiKey = 'AIzaSyCSjg3rrx6Obl4ngZsDlFlV4degUJSMvbw';
@@ -14,9 +22,15 @@ var clientId = '408869653199-ruoft30vmoqrgpku3us3qd2leb3k6tp1.apps.googleusercon
 var scopes = 'https://www.googleapis.com/auth/presentations.readonly https://www.googleapis.com/auth/drive';
 
 var authorizeButton = document.getElementById('authorize-button');
+var sideButtons = document.getElementById('side-buttons');
 var signoutButton = document.getElementById('signout-button');
 var newPresentation = document.getElementById('new-presentation');
 var center = document.getElementById('center');
+var slidesDisplay = document.getElementById('slides');
+var keyAndStatus = document.getElementById('key-and-status');
+var key = document.getElementById('key');
+var syncStatus = document.getElementById('status');
+var iframe = document.getElementById('iframe');
 var user;
 var authResponse;
 var oauthToken;
@@ -58,12 +72,10 @@ function onPickerApiLoad() {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
       center.style.display = 'none';
-      signoutButton.style.display = 'block';
-      newPresentation.style.display = 'block';
+      sideButtons.style.display = 'block';
       createPicker();
     } else {
-      signoutButton.style.display = 'none';
-      newPresentation.style.display = 'none';
+      sideButtons.style.display = 'none';
     }
 }
 
@@ -148,9 +160,10 @@ function getPresentation() {
 
 // Display the chosen presentation in an iframe
 function displayPresentation() {
-    // Display the presentation in an iframe
-    var iframe = document.getElementById('slides');
-    iframe.style.display = "block";
+    slidesDisplay.style.display = "block";
+    keyAndStatus.style.display = "flex";
+    key.style.display = "flex";
+    syncStatus.style.display = "flex";
     iframe.src = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
     socket.emit('presentation chosen');
     iframe.onload = function() {

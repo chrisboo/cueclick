@@ -1,5 +1,9 @@
-// Display for the current slide
-var iframe = document.getElementById('slides');
+/* Description: This JavaScript file controls the following processes:
+    - Display of chosen presentation in the iframe
+    - Retreival of speakers note and passing it to the server
+    - Changing iframe contents according to mobile navigations
+*/
+
 // Default url for any presentation
 var defaultUrl;
 // An array of all the slides in the chosen presentation

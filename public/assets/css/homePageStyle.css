@@ -78,12 +78,12 @@ body {
     right: 1.5%;
     width: 4.5vw;
     height: 11vw;
+    display: none;
 }
 
 /* -- New presentation button -- */
 #new-presentation {
     position: absolute;
-    display: none;
     top: 0;
     width: 4.5vw;
     height: 4.5vw;
@@ -109,7 +109,6 @@ body {
 /* -- Sign out button -- */
 #signout-button {
     position: absolute;
-    display: none;
     bottom: 0;
     width: 4.5vw;
     height: 4.5vw;
@@ -128,7 +127,29 @@ body {
     bottom: 0;
 }
 
-/* -- iframe -- */
+/* -- Block including key, status, and iframe display -- */
 #slides {
     display: none;
+}
+
+#key-and-status {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 1vw;
+}
+
+#key {
+    width: 20%;
+}
+
+#secret {
+    border: solid;
+}
+
+#status {
+    width: 20%;
+    margin-left: 5%;
+}
+
+#synced {
+    border: solid;
 }

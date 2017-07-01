@@ -33,13 +33,25 @@
         </div>
     </div>
 
-    <!-- Iframe to display the chosen presentation -->
-    <iframe id="slides" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-        <p>Sorry, there seems to be a problem :/
-            - Check that you have published your presentation via Google drive
-            - Check if your browser can support iframes
-        </p>
-    </iframe>
+    <div id="slides">
+        <!-- Secret key and status display -->
+        <div id="key-and-status">
+            <span id="key">
+                <pre>SECRET KEY: </pre> <p id="secret"></p>
+            </span>
+            <span id="status">
+                <pre>STATUS: </pre> <p id="synced">NOT SYNCED</p>
+            </span>
+        </div>
+
+        <!-- Iframe to display the chosen presentation -->
+        <iframe id="iframe" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+            <p>Sorry, there seems to be a problem :/
+                - Check that you have published your presentation via Google drive
+                - Check if your browser can support iframes
+            </p>
+        </iframe>
+    </div>
 
     <!-- Script for SOCKET.IO -->
     <script src="/socket.io/socket.io.js"></script>
