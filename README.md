@@ -61,3 +61,24 @@ Alternatively, simply type `npm install` while in the project folder since the d
    - Go to `localhost:8000` to see the result on your desktop
    - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
    along with the port (e.g. 129.168.1.209:8000) to see the mobile site
+
+## Known issues and bugs
+
+The journey has not been all that smooth-sailing; we battle a ferocious bug infestation every
+time we touch the code. Here is a growing list of identified bugs thus far:
+
+#### Sign in
+
+- If a user closes the window that pops up during Google login, the web console will throw an error
+
+#### Presentation
+
+- If a user presses the control on the iframe, the mobile controls will become inaccurate, and
+will fail
+- The iframe is currently at a fixed width and height, which may be inconvenient for smaller
+desktops/laptops/tablets
+
+#### Sign out
+
+- If a user refreshes the page after signing in, the whole page becomes unresponsive, and is
+treated as a new client
