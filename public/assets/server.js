@@ -3,6 +3,9 @@
    Start it by running node server.js on your computer
 */
 
+// Store all the currently connected web clients
+var webClients = [];
+
 // Create a socket.io server instance
 var express = require('express');
 var app = express();
@@ -45,9 +48,6 @@ app.get('/', function (req, res) {
 // Dealing with secret key input
 app.post('/secretKey', function(req, res) {
 
-    // Store the secret key in a variable first
-    var secretKey = req.body.secretKey;
-
     // Check that the secret key field is not empty (even though we have already
     // made the field a required field)
     req.checkBody('secretKey', 'Secret key required').notEmpty();
@@ -65,9 +65,18 @@ app.post('/secretKey', function(req, res) {
         return;
     } else {
         // Otherwise, the data is valid
+        // Store the secret key in a variable first
+        var secretKey = req.body.secretKey;
+
         // Check if the secret key matches with any key in the database (current session)
-        // TO BE IMPLEMENTED PROPERLY
-        res.sendFile(__dirname + '/pages/mobileControl.html');
+        var index = webClients.indexOf(secretKey);
+
+        // Send the user to the mobile controls if there is something that matches
+        if (index != -1) {
+            res.sendFile(__dirname + '/pages/mobileControl.html');
+        } else {
+            res.sendFile(__dirname + '/pages/mobile.html');
+        }
     }
 
 });
@@ -79,6 +88,19 @@ io.on('connection', function (socket) {
     io.clients(function(error, clients) {
         if (error) throw error;
         console.log(clients);
+    });
+
+    // Store web client id whenever a new web client connects
+    socket.on('web client signed in', function(id) {
+        console.log("web client connected: " + id);
+        webClients.push(id);
+    });
+
+    // Remove web client id whenever a web client disconnects
+    socket.on('web client signed out', function(id) {
+        console.log("web client disconnected: " + id);
+        var indexToRemove = webClients.indexOf(id);
+        webClients.splice(indexToRemove, 1);
     });
 
     // Notify all connected clients except sender when a valid presentation is chosen

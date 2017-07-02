@@ -29,6 +29,7 @@ var center = document.getElementById('center');
 var slidesDisplay = document.getElementById('slides');
 var keyAndStatus = document.getElementById('key-and-status');
 var key = document.getElementById('key');
+var secret = document.getElementById('secret');
 var syncStatus = document.getElementById('status');
 var iframe = document.getElementById('iframe');
 var user;
@@ -73,6 +74,8 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
       center.style.display = 'none';
       sideButtons.style.display = 'block';
+      secret.innerHTML = socket.id;
+      socket.emit('web client signed in', socket.id);
       createPicker();
     } else {
       sideButtons.style.display = 'none';
@@ -102,6 +105,7 @@ function handleAuthClick(event) {
 
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
+    socket.emit('web client signed out', socket.id);
     // Reload the page on signout
     window.location.reload();
 }
