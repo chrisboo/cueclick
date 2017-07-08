@@ -1,5 +1,6 @@
 /* This is the server-side file of our mobile remote controller app.
    It initializes socket.io and a new express instance and controls the routing.
+   Additionally, it also creates and keeps track of user sessions.
    Start it by running node server.js on your computer
 */
 
@@ -12,9 +13,12 @@ var app = express();
 var server  = require('http').Server(app);
 var io      = require('socket.io')(server);
 var static  = require('express-static');
-var secret = "cueclick";
 
-// Importing middleware for secret key validation
+// Import middleware for storing secret key on mobile end
+var fs = require('fs');
+var replace = require('stream-replace');
+
+// Import middleware for secret key validation
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
@@ -34,10 +38,12 @@ app.use(expressValidator());
 
 // Index route -- home page for website and mobile site
 app.get('/', function (req, res) {
+
+    console.log("at /: " + JSON.stringify(req.body));
     // Basic user agent check - test for mobiles
     var userAgent = req.headers['user-agent'];
     if (/mobile/i.test(userAgent)) {
-        // Send mobile to the navigation controls
+        // Send mobile to the mobile login site
         res.sendFile(__dirname + '/pages/mobile.html');
     } else {
         // Send desktop to the main site
@@ -47,6 +53,8 @@ app.get('/', function (req, res) {
 
 // Dealing with secret key input
 app.post('/secretKey', function(req, res) {
+
+    console.log("at /secret: " + JSON.stringify(req.body));
 
     // Check that the secret key field is not empty (even though we have already
     // made the field a required field)
@@ -73,9 +81,11 @@ app.post('/secretKey', function(req, res) {
 
         // Send the user to the mobile controls if there is something that matches
         if (index != -1) {
-            res.sendFile(__dirname + '/pages/mobileControl.html');
+            fs.createReadStream(__dirname + '/pages/mobileControl.html')
+                .pipe(replace('to replace', secretKey))
+                .pipe(res);
         } else {
-            res.sendFile(__dirname + '/pages/mobile.html');
+            res.redirect('/');
         }
     }
 
@@ -115,12 +125,12 @@ io.on('connection', function (socket) {
     });
 
     // Notify all connected clients except sender when there are slide changes
-    socket.on('next-slide', function() {
-        socket.broadcast.emit('next-slide');
+    socket.on('next-slide', function(webSocket) {
+        socket.to(webSocket).emit('next-slide');
     });
 
-    socket.on('previous-slide', function() {
-        socket.broadcast.emit('previous-slide');
+    socket.on('previous-slide', function(webSocket) {
+        socket.to(webSocket).emit('previous-slide');
     });
 
     // Notify all connected clients to load the presenter notes

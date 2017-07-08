@@ -63,11 +63,10 @@ function handleTouchMove(evt) {
     if (Math.abs( xDiff ) > Math.abs( yDiff )) {
         if ( xDiff > 0 ) {
             // Swipe towards left <--
-            socket.emit('next-slide');
-
+            socket.emit('next-slide', webSocket);
         } else {
             // Swipe towards right -->
-            socket.emit('previous-slide');
+            socket.emit('previous-slide', webSocket);
         }
     }
     // Reset values
