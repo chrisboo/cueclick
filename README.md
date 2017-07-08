@@ -29,8 +29,10 @@ By mid-late July, a working prototype will be completed, fulfilling the second m
 - Allow users to sign out of the web application
 
 #### Mobile
-
+- Allow users to connect to and control a specific presentation via a secret key
 - Allow users to control the presentation by swiping left and right
+- Display corresponding speaker notes (i.e. script) on connected mobile devices
+- Switch script display in response to mobile controls
 
 ## Instructions -- How to run the code
 
@@ -77,6 +79,8 @@ time we touch the code. Here is a growing list of identified bugs thus far:
 will fail
 - The iframe is currently at a fixed width and height, which may be inconvenient for smaller
 desktops/laptops/tablets
+- Presentations which appear in Google Drive but are not already in Google Slides format cannot
+be accessed via the web-application, and will throw an error
 
 #### Sign out
 
