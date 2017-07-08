@@ -6,7 +6,8 @@
     "express": "^4.15.3",
     "express-static": "^1.1.0",
     "express-validator": "^3.2.0",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "stream-replace": "^1.0.0"
   },
   "description": "We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.",
   "main": "index.js",
