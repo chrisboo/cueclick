@@ -69,7 +69,7 @@ app.post('/secretKey', function(req, res) {
 
     if (error) {
         // Send users to an error page if there is really an error (not supposed to happen!)
-        res.sendFile(__dirname + '/pages/error.html');
+        res.send("We are really sorryy, but an unexpected error occurred.");
         return;
     } else {
         // Otherwise, the data is valid
