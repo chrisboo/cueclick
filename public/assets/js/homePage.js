@@ -105,7 +105,7 @@ function handleAuthClick(event) {
 
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-    socket.emit('web client signed out', socketId);
+    socket.emit('web client signed out', socketId, room);
     // Reload the page on signout
     window.location.reload();
 }

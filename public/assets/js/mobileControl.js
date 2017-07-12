@@ -46,6 +46,13 @@ socket.on('re-choosing presentation', function() {
     instructions.style.display = 'block';
 });
 
+// Make the page refresh and redirect to the pre-sign in page if any signout
+// occurs on the web client end
+socket.on('web client signed out', function() {
+    alert("web client signed out!");
+    document.location.href = '/';
+});
+
 // Add event listeners for touchstart (new touch on the surface)
 // and touchmove (when user moves a touch point along the surface)
 document.addEventListener('touchstart', handleTouchStart, false);

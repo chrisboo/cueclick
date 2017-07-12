@@ -54,8 +54,6 @@ app.get('/', function (req, res) {
 // Dealing with secret key input
 app.post('/secretKey', function(req, res) {
 
-    console.log("at /secret: " + JSON.stringify(req.body));
-
     // Check that the secret key field is not empty (even though we have already
     // made the field a required field)
     req.checkBody('secretKey', 'Secret key required').notEmpty();
@@ -107,10 +105,11 @@ io.on('connection', function (socket) {
     });
 
     // Remove web client id whenever a web client disconnects
-    socket.on('web client signed out', function(id) {
+    socket.on('web client signed out', function(id, room) {
         console.log("web client disconnected: " + id);
         var indexToRemove = webClients.indexOf(id);
         webClients.splice(indexToRemove, 1);
+        socket.to(room).emit('web client signed out');
     });
 
     // Connect client to the correct room
