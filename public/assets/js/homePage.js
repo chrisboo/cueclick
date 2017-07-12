@@ -75,7 +75,7 @@ function updateSigninStatus(isSignedIn) {
       center.style.display = 'none';
       sideButtons.style.display = 'block';
       secret.innerHTML = socket.id;
-      socket.emit('web client signed in', socket.id);
+      socket.emit('web client signed in', socketId);
       createPicker();
     } else {
       sideButtons.style.display = 'none';
@@ -105,7 +105,7 @@ function handleAuthClick(event) {
 
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-    socket.emit('web client signed out', socket.id);
+    socket.emit('web client signed out', socketId);
     // Reload the page on signout
     window.location.reload();
 }
@@ -115,7 +115,7 @@ function openNewPresentation() {
     var pickedBefore = (iframe.style.display === 'block');
     if (pickedBefore) {
         // Return the mobile page to the instruction page during the selection
-        socket.emit('re-choosing presentation');
+        socket.emit('re-choosing presentation', room);
         resetIFrame();
     }
     createPicker();
@@ -169,7 +169,7 @@ function displayPresentation() {
     key.style.display = "flex";
     syncStatus.style.display = "flex";
     iframe.src = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
-    socket.emit('presentation chosen');
+    socket.emit('presentation chosen', room);
     iframe.onload = function() {
         initWebControl();
     }

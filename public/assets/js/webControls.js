@@ -11,9 +11,20 @@ var slides;
 // Record the current slide and current speakers note
 var currentSlide;
 var speakerNote;
+
 // Create new socket instance
 // Socket.IO connection established to '/'
 var socket = io.connect('/');
+var socketId;
+var room;
+// TEMPORARY solution: make each web client join a room that is a substring of its id
+socket.on('connect', function() {
+    socketId = socket.id;
+    room = socketId.substr(0, socketId.length - 2);
+    socket.emit('room', room);
+    console.log("Web client joined room: " + room);
+});
+
 // Check if a slide has been chosen and loaded
 var isInitialised;
 // Counters to ensure there is a 'next' and 'previous' slide
@@ -68,7 +79,7 @@ function sendNotes() {
             break;
         }
     }
-    socket.emit('presenter note', speakerNote);
+    socket.emit('presenter note', room, speakerNote);
     // Reset speakerNote after sending it to mobile
     speakerNote = "";
 }
@@ -104,7 +115,7 @@ function slideChange() {
 // Show client id on the browser console when a new client connects on desktop
 socket.on('connect', function() {
     console.log('Web client connected!');
-    console.log('Web id: ' + socket.id);
+    console.log('Web id: ' + socketId);
 });
 
 // Listen for the 'next-slide' event emitted by mobile client

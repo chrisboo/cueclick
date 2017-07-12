@@ -69,7 +69,7 @@ app.post('/secretKey', function(req, res) {
 
     if (error) {
         // Send users to an error page if there is really an error (not supposed to happen!)
-        res.send("We are really sorryy, but an unexpected error occurred.");
+        res.send("We are really sorry, but an unexpected error occurred.");
         return;
     } else {
         // Otherwise, the data is valid
@@ -113,29 +113,34 @@ io.on('connection', function (socket) {
         webClients.splice(indexToRemove, 1);
     });
 
+    // Connect client to the correct room
+    socket.on('room', function(room) {
+        socket.join(room);
+    });
+
     // Notify all connected clients except sender when a valid presentation is chosen
-    socket.on('presentation chosen', function() {
-        socket.broadcast.emit('presentation chosen');
+    socket.on('presentation chosen', function(room) {
+        socket.to(room).emit('presentation chosen');
         console.log("presentation chosen");
     });
 
     // Notify all connected clients except sender when a new presentation is being selected
-    socket.on('re-choosing presentation', function() {
-        socket.broadcast.emit('re-choosing presentation');
+    socket.on('re-choosing presentation', function(room) {
+        socket.to(room).emit('re-choosing presentation');
     });
 
     // Notify all connected clients except sender when there are slide changes
-    socket.on('next-slide', function(webSocket) {
-        socket.to(webSocket).emit('next-slide');
+    socket.on('next-slide', function(room) {
+        socket.to(room).emit('next-slide');
     });
 
-    socket.on('previous-slide', function(webSocket) {
-        socket.to(webSocket).emit('previous-slide');
+    socket.on('previous-slide', function(room) {
+        socket.to(room).emit('previous-slide');
     });
 
     // Notify all connected clients to load the presenter notes
-    socket.on('presenter note', function(notes) {
-        socket.broadcast.emit('presenter note', notes);
+    socket.on('presenter note', function(room, notes) {
+        socket.to(room).emit('presenter note', notes);
     });
 
 });
