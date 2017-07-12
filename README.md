@@ -33,6 +33,8 @@ By mid-late July, a working prototype will be completed, fulfilling the second m
 - Allow users to control the presentation by swiping left and right
 - Display corresponding speaker notes (i.e. script) on connected mobile devices
 - Switch script display in response to mobile controls
+- Automatically 'sign out' users and redirect them to secret key login page whenever
+the corresponding web client has signed out on desktop
 
 ## Instructions -- How to run the code
 
