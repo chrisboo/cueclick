@@ -48,7 +48,7 @@ function initWebControl() {
 
 // Get the notes for the current slide in the iframe
 function sendNotes() {
-    notesPage = currentSlide.slideProperties.notesPage;
+    var notesPage = currentSlide.slideProperties.notesPage;
     var notesId = notesPage.notesProperties.speakerNotesObjectId;
     // Find the object with the speaker notes Id
     // Note that the hierarchy works like this: a slide has a notes page, a notes

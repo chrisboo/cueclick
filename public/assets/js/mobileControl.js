@@ -14,7 +14,6 @@ socket.on('connect', function() {
 
 // Make presenter note div appear after a valid presentation is chosen
 socket.on('presentation chosen', function() {
-    socket.emit('room', room);
     initNotesDisplay();
 });
 
