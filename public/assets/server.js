@@ -114,6 +114,7 @@ io.on('connection', function (socket) {
 
     // Connect client to the correct room
     socket.on('room', function(room) {
+        console.log("a new client, " + socket.id + " joined the room " + room);
         socket.join(room);
     });
 

@@ -112,12 +112,6 @@ function slideChange() {
     iframe.onload = changeReadyState();
 }
 
-// Show client id on the browser console when a new client connects on desktop
-socket.on('connect', function() {
-    console.log('Web client connected!');
-    console.log('Web id: ' + socketId);
-});
-
 // Listen for the 'next-slide' event emitted by mobile client
 socket.on('next-slide', function() {
 
