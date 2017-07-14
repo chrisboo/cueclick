@@ -10,6 +10,12 @@ var room = webClientId.substr(0, webClientId.length - 2);
 // Once socket has connected, join it to the web client room
 socket.on('connect', function() {
     socket.emit('room', room);
+    socket.emit('mobile client signed in', webClientId, socket.id);
+    initNotesDisplay();
+});
+
+socket.on('first script', function(script) {
+    displayNotes(script);
 });
 
 // Make presenter note div appear after a valid presentation is chosen

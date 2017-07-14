@@ -32,6 +32,8 @@ var currentSlideNo;
 var maxSlidesNo;
 // Boolean value to indicate whether the next slide has loaded
 var isReady = true;
+// Store the script for the first slide of the very first presentation
+var firstScript;
 
 // Initialise variables, and ensure that chosen presentation has been loaded
 // before remote control is allowed
@@ -79,6 +81,12 @@ function sendNotes() {
             break;
         }
     }
+
+    // Store the very first script of the very first presentation
+    if (firstScript == null) {
+        firstScript = speakerNote;
+    }
+
     socket.emit('presenter note', room, speakerNote);
     // Reset speakerNote after sending it to mobile
     speakerNote = "";
@@ -111,6 +119,11 @@ function slideChange() {
     iframe.src = defaultUrl + "#slide=id." + currentSlideId;
     iframe.onload = changeReadyState();
 }
+
+socket.on('mobile client signed in', function(mobileClientId) {
+    alert("Mobile signed in!");
+    socket.emit('first script', mobileClientId, firstScript);
+});
 
 // Listen for the 'next-slide' event emitted by mobile client
 socket.on('next-slide', function() {
