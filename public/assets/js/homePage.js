@@ -112,7 +112,7 @@ function handleSignoutClick(event) {
 
 // Reopen a new picker for selecting another presentation
 function openNewPresentation() {
-    var pickedBefore = (iframe.style.display === 'block');
+    var pickedBefore = (iframe.style.display != 'none');
     if (pickedBefore) {
         // Return the mobile page to the instruction page during the selection
         socket.emit('re-choosing presentation', room);
