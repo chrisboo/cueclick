@@ -32,8 +32,8 @@ var currentSlideNo;
 var maxSlidesNo;
 // Boolean value to indicate whether the next slide has loaded
 var isReady = true;
-// Store the script for the first slide of the very first presentation
-var firstScript;
+// Store the script for the current slide of the presentation
+var currentScript;
 
 // Initialise variables, and ensure that chosen presentation has been loaded
 // before remote control is allowed
@@ -82,10 +82,8 @@ function sendNotes() {
         }
     }
 
-    // Store the very first script of the very first presentation
-    if (firstScript == null) {
-        firstScript = speakerNote;
-    }
+    // Store the script of the current slide
+    currentScript = speakerNote;
 
     socket.emit('presenter note', room, speakerNote);
     // Reset speakerNote after sending it to mobile
@@ -120,9 +118,9 @@ function slideChange() {
     iframe.onload = changeReadyState();
 }
 
+// Whenever a new mobile client signs in, send the script for the current slide to new client
 socket.on('mobile client signed in', function(mobileClientId) {
-    alert("Mobile signed in!");
-    socket.emit('first script', mobileClientId, firstScript);
+    socket.emit('first script', mobileClientId, currentScript);
 });
 
 // Listen for the 'next-slide' event emitted by mobile client
