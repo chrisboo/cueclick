@@ -14,7 +14,8 @@ socket.on('connect', function() {
     initNotesDisplay();
 });
 
-socket.on('first script', function(script) {
+// Retrieve script at the point in time when the mobile client connects
+socket.on('current script', function(script) {
     displayNotes(script);
 });
 

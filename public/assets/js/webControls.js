@@ -120,7 +120,7 @@ function slideChange() {
 
 // Whenever a new mobile client signs in, send the script for the current slide to new client
 socket.on('mobile client signed in', function(mobileClientId) {
-    socket.emit('first script', mobileClientId, currentScript);
+    socket.emit('current script', mobileClientId, currentScript);
 });
 
 // Listen for the 'next-slide' event emitted by mobile client

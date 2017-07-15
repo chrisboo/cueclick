@@ -118,16 +118,14 @@ io.on('connection', function (socket) {
         socket.join(room);
     });
 
+    // Notify the relevant web client that a new mobile client has connected
     socket.on('mobile client signed in', function(webClientId, mobileClientId) {
-        console.log("mobile client signed in");
-        console.log("web client: " + webClientId);
-        console.log("mobile client: " +  mobileClientId);
         socket.to(webClientId).emit('mobile client signed in', mobileClientId);
     });
 
-    socket.on('first script', function(mobileClientId, script) {
-        console.log("script: " + script);
-        socket.to(mobileClientId).emit('first script', script);
+    // Send the current script to a newly connected mobile client
+    socket.on('current script', function(mobileClientId, script) {
+        socket.to(mobileClientId).emit('current script', script);
     });
 
     // Notify all connected clients except sender when a valid presentation is chosen
