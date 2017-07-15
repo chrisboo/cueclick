@@ -4,6 +4,9 @@
     - Changing iframe contents according to mobile navigations
 */
 
+// Keeps track of the number of mobile clients connected to the web client
+var mobileClientCount;
+
 // Default url for any presentation
 var defaultUrl;
 // An array of all the slides in the chosen presentation
@@ -38,6 +41,7 @@ var currentScript;
 // Initialise variables, and ensure that chosen presentation has been loaded
 // before remote control is allowed
 function initWebControl() {
+    mobileClientCount = 0;
     defaultUrl = "https://docs.google.com/presentation/d/" + presentation.presentationId + "/embed?start=false&loop=false&delayms=3000";
     slides = presentation.slides;
     currentSlideNo = 0;
@@ -118,9 +122,22 @@ function slideChange() {
     iframe.onload = changeReadyState();
 }
 
+// Update the sync status whenever a new mobile client connects
+function updateSyncStatus() {
+    mobileClientCount++;
+    if (mobileClientCount == 1) {
+        syncInner.innerHTML = "SYNCED: " + mobileClientCount + " mobile client connected";
+    } else {
+        syncInner.innerHTML = "SYNCED: " + mobileClientCount + " mobile clients connected";
+    }
+}
+
 // Whenever a new mobile client signs in, send the script for the current slide to new client
+// Also, increment the counter for number of connected mobile clients, and change the sync
+// status on the desktop accordingly
 socket.on('mobile client signed in', function(mobileClientId) {
     socket.emit('current script', mobileClientId, currentScript);
+    updateSyncStatus();
 });
 
 // Listen for the 'next-slide' event emitted by mobile client

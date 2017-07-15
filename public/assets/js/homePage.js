@@ -31,6 +31,7 @@ var keyAndStatus = document.getElementById('key-and-status');
 var key = document.getElementById('key');
 var secret = document.getElementById('secret');
 var syncStatus = document.getElementById('status');
+var syncInner = document.getElementById('synced');
 var iframe = document.getElementById('iframe');
 var user;
 var authResponse;

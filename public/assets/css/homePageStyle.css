@@ -134,11 +134,11 @@ body {
 
 #key-and-status {
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 1vw;
+    font-size: 100%;
 }
 
 #key {
-    width: 50%;
+    width: 40%;
 }
 
 #secret {
@@ -146,8 +146,8 @@ body {
 }
 
 #status {
-    width: 20%;
-    margin-left: 5vw;
+    width: 40%;
+    margin-left: 10%;
 }
 
 #synced {
