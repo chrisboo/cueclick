@@ -1,13 +1,16 @@
+var p = document.getElementById("pwd");
+var cancelSign = document.getElementById("cancelEye");
+
 //Shows the password when it is hidden
 function show() {
-    var p = document.getElementById("pwd");
     p.setAttribute('type', 'text');
+    cancelSign.style.display = 'block';
 }
 
 //Hides the password when it is shown
 function hide() {
-    var p = document.getElementById("pwd");
     p.setAttribute('type', 'password');
+    cancelSign.style.display = 'none';
 }
 
 var pwShown = 0;
