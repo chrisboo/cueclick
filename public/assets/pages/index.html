@@ -21,15 +21,15 @@
 
     <div id="side-buttons">
           <!-- Add button for picking new presentation -->
-        <div id="new-presentation" onclick="openNewPresentation()">
-            <button id="bottom-presentation">+</button>
-            <button class="overlay" id="top-presentation"></button>
+        <div id="new-presentation" onclick="openNewPresentation()" onmouseover="hoverP()" onmouseout="unhoverP()">
+            <img id="top-presentation" class="s-button" src="../img/newPresentHover.png" alt="newPresentationHover">
+            <img id="bottom-presentation" class="s-button" src="../img/newPresent.png" alt="newPresentation">
         </div>
 
         <!-- Add button for sign out -->
-        <div id="signout-button">
-            <img id="bottom-button" src="../img/signoutButton.png" alt="signoutButton">
-            <button class="overlay" id="top-button"></button>
+        <div id="signout-button" onmouseover="hoverS()" onmouseout="unhoverS()">
+            <img id="top-button" class="s-button" src="../img/signoutButtonHover.png" alt="signoutButtonHover">
+            <img id="bottom-button" class="s-button" src="../img/signoutButton.png" alt="signoutButton">
         </div>
     </div>
 
@@ -54,6 +54,9 @@
 
     <!-- Script for SOCKET.IO -->
     <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Script for side buttons hovering effects -->
+    <script src="../js/sideButtonsEffects.js"></script>
 
     <!-- Script for moving to next and previous slides -->
     <script src="../js/webControls.js"></script>

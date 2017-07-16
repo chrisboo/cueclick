@@ -73,23 +73,6 @@ body {
     border-color: yellow;
 }
 
-/* -- Style for button overlays -- */
-.overlay {
-    right: 1.5%;
-    width: 4.5vw;
-    height: 4.5vw;
-    border: 0;
-    border-radius: 50%;
-    z-index: 2;
-    color: #5b7193;
-    opacity: 0;
-}
-
-.overlay:hover {
-    opacity: 0.4;
-    transition: 200ms ease-out;
-}
-
 /* -- Style for side buttons -- */
 #side-buttons {
     position: fixed;
@@ -100,50 +83,34 @@ body {
     display: none;
 }
 
-/* -- New presentation button -- */
-#new-presentation {
-    position: absolute;
-    top: 0;
+.s-button {
     width: 4.5vw;
     height: 4.5vw;
+    position: absolute;
+}
+
+/* -- New presentation button -- */
+#top-presentation {
+    display: none;
+    top: 0;
+    z-index: 2;
 }
 
 #bottom-presentation {
-    position: absolute;
     top: 0;
-    width: 4.5vw;
-    height: 4.5vw;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    border: 0;
-    font-size: 4vw;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-}
-
-#top-presentation {
-    position: absolute;
-    top: 0;
-}
-
-/* -- Sign out button -- */
-#signout-button {
-    position: absolute;
-    bottom: 0;
-    width: 4.5vw;
-    height: 4.5vw;
-}
-
-#bottom-button {
-    position: absolute;
-    bottom: 0;
-    width: 4.5vw;
-    height: 4.5vw;
     z-index: 1;
 }
 
+/* -- Sign out button -- */
 #top-button {
-    position: absolute;
+    display: none;
     bottom: 0;
+    z-index: 2;
+}
+
+#bottom-button {
+    bottom: 0;
+    z-index: 1;
 }
 
 /* -- Block including key, status, and iframe display -- */
