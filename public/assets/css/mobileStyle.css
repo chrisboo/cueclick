@@ -1,9 +1,12 @@
+/* -- Futura fonts -- */
+@font-face {
+    font-family: "Futura Medium";
+    src: url('fonts/Futura-Medium.ttf');
+}
+
 /* -- Background image -- */
 body {
-    background-image: url(../img/wood.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +16,7 @@ body {
 
 /* -- Center element -- */
 .center {
-    max-width: 80%;
+    max-width: 70%;
     height: auto;
     margin-top: 3%;
     margin-bottom: 1%;
@@ -21,17 +24,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15%;
-    box-shadow: 2px 2px 4px 3px #505050;
     position: absolute;
-    z-index: 1;
 }
 
 /* -- Logo style -- */
 #logo {
     position: relative;
-    z-index: 2;
     max-width: 100%;
     height: auto;
 }
@@ -45,7 +43,6 @@ form.login {
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 2;
 }
 
 #password {
@@ -55,17 +52,22 @@ form.login {
     padding: 5%;
 }
 
+#pwd:focus {
+    border: 2px solid yellow;
+}
+
 /* -- Show password -- */
 #eye {
     height: auto;
     max-width: 15%;
-    margin-right: 3%;
+    margin-left: 3%;
 }
 
 /* -- Login element -- */
 form.login p {
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
     font-size: 5vw;
+    color: white;
     max-width: 100%;
     height: auto;
     line-height: 2%;
