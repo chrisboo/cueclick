@@ -1,3 +1,14 @@
+/* -- Futura fonts -- */
+@font-face {
+    font-family: "Futura Medium";
+    src: url('fonts/Futura-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Futura Bold";
+    src: url('fonts/Futura-Bold.ttf');
+}
+
 /* -- Background image -- */
 body {
     background-color: black;
@@ -25,17 +36,6 @@ body {
     width: 90%;
     height: auto;
     position: relative;
-}
-
-/* -- Futura fonts -- */
-@font-face {
-    font-family: "Futura Medium";
-    src: url('fonts/Futura-Medium.ttf');
-}
-
-@font-face {
-    font-family: "Futura Bold";
-    src: url('fonts/Futura-Bold.ttf');
 }
 
 #para {
