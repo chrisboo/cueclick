@@ -1,9 +1,6 @@
 /* -- Background image -- */
 body {
-    background-image: url(../img/wood.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,41 +14,63 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15%;
-    box-shadow: 2px 2px 4px 3px #505050;
-    width: 30%;
+    width: 50%;
     height: auto;
     position: absolute;
 }
 
 /* -- CueClick Logo -- */
 #logo {
-    max-width: 80%;
-    width: 80%;
+    max-width: 90%;
+    width: 90%;
     height: auto;
     position: relative;
+}
+
+/* -- Futura fonts -- */
+@font-face {
+    font-family: "Futura Medium";
+    src: url('fonts/Futura-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Futura Bold";
+    src: url('fonts/Futura-Bold.ttf');
 }
 
 #para {
     position: relative;
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 2vw;
-    max-width: 100%;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    color: white;
+    font-size: 1.5vw;
     height: auto;
-    line-height: 2%;
 }
 
 /* -- Sign in button -- */
 #authorize-button {
+    margin-top: 3%;
     position: relative;
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    width: 15%;
+    height: auto;
+    border: solid;
+    border-color: white;
+    border-width: 0.1vw;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#authorize-button p {
+    font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
     font-size: 1.5vw;
-    margin-bottom: 2%;
+    line-height: 0.3vw;
+    color: white;
 }
 
 #authorize-button:hover {
     cursor: pointer;
+    border-color: yellow;
 }
 
 /* -- Style for button overlays -- */
