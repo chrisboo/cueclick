@@ -1,9 +1,6 @@
 /* -- Background image -- */
 body {
-    background-image: url(../img/wood.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,10 +10,7 @@ body {
 
 /* -- Instructions segment -- */
 #instructions {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15%;
-    box-shadow: 2px 2px 4px 3px #505050;
-    width: 60%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -24,13 +18,21 @@ body {
     align-items: center;
 }
 
-#instructions.p {
+#instructions p {
     margin: 10%;
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
     font-size: 5vw;
+    color: white;
 }
 
 /* -- Presenter note segment -- */
 #note {
     display: none;
+    width: 80%;
+}
+
+#script {
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    font-size: 3vw;
+    color: white;
 }
