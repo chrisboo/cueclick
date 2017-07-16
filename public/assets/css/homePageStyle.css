@@ -118,24 +118,46 @@ body {
     display: none;
 }
 
-#key-and-status {
-    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+.top-bar-label {
+    font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
     font-size: 100%;
+    line-height: 0.3vw;
+    color: white;
+}
+
+.box {
+    width: 50%;
+    border: solid;
+    border-color: white;
+    border-radius: 10px;
+    margin-left: 2.5%;
+    display: flex;
+    justify-content: center;
+}
+
+#key-and-status {
+    margin-bottom: 1%;
 }
 
 #key {
-    width: 40%;
+    width: 50%;
 }
 
 #secret {
-    border: solid;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    font-size: 100%;
+    color: white;
+    line-height: 0.3vw;
 }
 
 #status {
     width: 40%;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 #synced {
-    border: solid;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    font-size: 100%;
+    color: white;
+    line-height: 0.3vw;
 }
