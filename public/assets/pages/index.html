@@ -41,11 +41,11 @@
         <div id="key-and-status">
             <span id="key">
                 <p class="top-bar-label">SECRET KEY:</p>
-                <span class="box"><p id="secret"></p></span>
+                <span class="box" id="secret-box"><p id="secret"></p></span>
             </span>
             <span id="status">
                 <p class="top-bar-label">STATUS:</p>
-                <span class="box"><p id="synced">NOT SYNCED</p></span>
+                <span class="box" id="status-box"><p id="synced">NOT SYNCED</p></span>
             </span>
         </div>
 
@@ -69,6 +69,9 @@
     <!-- Only begin initializing homePage.js after google API has loaded -->
     <!-- Script for selecting a presentation and displaying the presentation in an iframe -->
     <script src="../js/homePage.js"></script>
+
+    <!-- Script for showing and hiding secret key -->
+    <script src="../js/showSecretKey.js"></script>
 
     <!-- Script for Google API -->
     <script async defer src="https://apis.google.com/js/api.js"

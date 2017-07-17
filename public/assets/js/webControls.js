@@ -125,6 +125,7 @@ function slideChange() {
 function updateSyncStatus() {
     mobileClientCount++;
     syncInner.innerHTML = "SYNCED: (" + mobileClientCount + ")";
+    statusBox.style.borderColor = "yellow";
 }
 
 // Whenever a new mobile client signs in, send the script for the current slide to new client

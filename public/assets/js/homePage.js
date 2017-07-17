@@ -30,8 +30,10 @@ var slidesDisplay = document.getElementById('slides');
 var keyAndStatus = document.getElementById('key-and-status');
 var key = document.getElementById('key');
 var secret = document.getElementById('secret');
+var secretBox = document.getElementById('secret-box');
 var syncStatus = document.getElementById('status');
 var syncInner = document.getElementById('synced');
+var statusBox = document.getElementById('status-box');
 var iframe = document.getElementById('iframe');
 var user;
 var authResponse;
@@ -75,7 +77,7 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
       center.style.display = 'none';
       sideButtons.style.display = 'block';
-      secret.innerHTML = socket.id;
+      secret.innerHTML = "Click for secret key";
       socket.emit('web client signed in', socketId);
       createPicker();
     } else {

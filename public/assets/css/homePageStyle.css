@@ -132,6 +132,10 @@ body {
     width: 50%;
 }
 
+#secret-box:hover {
+    cursor: pointer;
+}
+
 #secret {
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
     font-size: 100%;
