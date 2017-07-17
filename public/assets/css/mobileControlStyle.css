@@ -21,7 +21,7 @@ body {
 #instructions p {
     margin: 10%;
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
-    font-size: 5vw;
+    font-size: 6vw;
     color: white;
 }
 
@@ -29,10 +29,26 @@ body {
 #note {
     display: none;
     width: 80%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide-no {
+    width: 100%;
+    height: 5%;
+    margin-bottom: 2%;
+    font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
+    font-size: 5vw;
+    color: white;
 }
 
 #script {
+    width: 100%;
+    height: 93%;
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
-    font-size: 3vw;
+    font-size: 4vw;
     color: white;
+    overflow-y: auto;
 }

@@ -124,8 +124,8 @@ io.on('connection', function (socket) {
     });
 
     // Send the current script to a newly connected mobile client
-    socket.on('current script', function(mobileClientId, script) {
-        socket.to(mobileClientId).emit('current script', script);
+    socket.on('current script', function(mobileClientId, script, currentSlideNo, maxSlidesNo) {
+        socket.to(mobileClientId).emit('current script', script, currentSlideNo, maxSlidesNo);
     });
 
     // Notify all connected clients except sender when a valid presentation is chosen
@@ -150,8 +150,8 @@ io.on('connection', function (socket) {
     });
 
     // Notify all connected clients to load the presenter notes
-    socket.on('presenter note', function(room, notes) {
-        socket.to(room).emit('presenter note', notes);
+    socket.on('presenter note', function(room, notes, currentSlideNo, maxSlidesNo) {
+        socket.to(room).emit('presenter note', notes, currentSlideNo, maxSlidesNo);
     });
 
 });

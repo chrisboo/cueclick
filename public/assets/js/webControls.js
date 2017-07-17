@@ -25,7 +25,6 @@ socket.on('connect', function() {
     socketId = socket.id;
     room = socketId.substr(0, socketId.length - 2);
     socket.emit('room', room);
-    console.log("Web client joined room: " + room);
 });
 
 // Check if a slide has been chosen and loaded
@@ -89,7 +88,7 @@ function sendNotes() {
     // Store the script of the current slide
     currentScript = speakerNote;
 
-    socket.emit('presenter note', room, speakerNote);
+    socket.emit('presenter note', room, speakerNote, currentSlideNo, maxSlidesNo);
     // Reset speakerNote after sending it to mobile
     speakerNote = "";
 }
@@ -125,18 +124,14 @@ function slideChange() {
 // Update the sync status whenever a new mobile client connects
 function updateSyncStatus() {
     mobileClientCount++;
-    if (mobileClientCount == 1) {
-        syncInner.innerHTML = "SYNCED: " + mobileClientCount + " mobile client connected";
-    } else {
-        syncInner.innerHTML = "SYNCED: " + mobileClientCount + " mobile clients connected";
-    }
+    syncInner.innerHTML = "SYNCED: (" + mobileClientCount + ")";
 }
 
 // Whenever a new mobile client signs in, send the script for the current slide to new client
 // Also, increment the counter for number of connected mobile clients, and change the sync
 // status on the desktop accordingly
 socket.on('mobile client signed in', function(mobileClientId) {
-    socket.emit('current script', mobileClientId, currentScript);
+    socket.emit('current script', mobileClientId, currentScript, currentSlideNo, maxSlidesNo);
     updateSyncStatus();
 });
 
@@ -159,7 +154,7 @@ socket.on('next-slide', function() {
         }
 
     } else {
-        alert("Please log in and select a valid Google Presentation!");
+        alert("Please make sure you have selected a valid Google Presentation!");
     }
 });
 
@@ -182,6 +177,6 @@ socket.on('previous-slide', function() {
         }
 
     } else {
-        alert("Please log in and select a valid Google Presentation!");
+        alert("Please make sure you have selected a valid Google Presentation!");
     }
 });

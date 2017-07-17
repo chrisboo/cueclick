@@ -15,7 +15,8 @@ socket.on('connect', function() {
 });
 
 // Retrieve script at the point in time when the mobile client connects
-socket.on('current script', function(script) {
+socket.on('current script', function(script, currentSlideNo, maxSlidesNo) {
+    updateSlidesNo(currentSlideNo, maxSlidesNo);
     displayNotes(script);
 });
 
@@ -26,14 +27,22 @@ socket.on('presentation chosen', function() {
 
 // Prepares the segment for the script to be displayed
 function initNotesDisplay() {
-    presenterNotes.style.display = 'block';
+    presenterNotes.style.display = 'flex';
     instructions.style.display = 'none';
 }
 
 // Listen for presenter note event
-socket.on('presenter note', function(notes) {
+socket.on('presenter note', function(notes, currentSlideNo, maxSlidesNo) {
+    updateSlidesNo(currentSlideNo, maxSlidesNo);
     displayNotes(notes);
 });
+
+// Updates the slide number above the script display
+function updateSlidesNo(currentSlideNo, maxSlidesNo) {
+    var trueCurrentSlideNo = currentSlideNo + 1;
+    var slideNo = document.getElementById('slide-no');
+    slideNo.innerHTML = "Slide " + trueCurrentSlideNo + "/" + maxSlidesNo;
+}
 
 // Display the presenter note on mobile
 function displayNotes(notes) {
