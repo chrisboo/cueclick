@@ -141,22 +141,17 @@ socket.on('next-slide', function() {
 
     // Check if a valid presentation has been selected
     if (isInitialised) {
-
         // Check if the current slide has been loaded into the iframe
         if (isReady) {
             // Check if there is a next slide
-            if (currentSlideNo >= (maxSlidesNo - 1)) {
-                alert("There is no next slide!");
-            } else {
+            if (currentSlideNo < (maxSlidesNo - 1)) {
                 isReady = false;
                 currentSlideNo++;
                 slideChange();
             }
         }
-
-    } else {
-        alert("Please make sure you have selected a valid Google Presentation!");
     }
+
 });
 
 // Listen for the 'previous-slide' event emitted by mobile client
@@ -164,20 +159,15 @@ socket.on('previous-slide', function() {
 
     // Check if a valid presentation has been selected
     if (isInitialised) {
-
         // Check if the current slide has been loaded into the iframe
         if (isReady) {
-            // Check if there is a next slide
-            if (currentSlideNo <= 0) {
-                alert("There is no previous slide!");
-            } else {
+            // Check if there is a previous slide
+            if (currentSlideNo > 0) {
                 isReady = false;
                 currentSlideNo--;
                 slideChange();
             }
         }
-
-    } else {
-        alert("Please make sure you have selected a valid Google Presentation!");
     }
+    
 });
