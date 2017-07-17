@@ -1,3 +1,13 @@
+## Table of Contents
+
+- [Motivation](#motivation)
+- [Aim](#aim)
+- [Scope of Project](#scope-of-project)
+- [Features Implemented](#features-implemented)
+- [Instructions](#instructions----how-to-run-the-code)
+- [Issues and Bugs](#known-issues-and-bugs)
+- [Possible extensions](#possible-extensions)
+
 ## Motivation
 
 Presentations are important; they communicate and sell our ideas to a target audience. We try to perfect our presentations, but it can be expensive and bothersome to do so. Why? For a start, we need to control the slides during our presentation. Unfortunately, depending on our teammates can result in slides being confusingly out of sync with our presentation while a clicker is bulky, easy to forget, and not necessarily cheap (especially for students). Additionally, we may wish to reference our scripts during the presentation, but fumbling with a stack of cue-cards or worse, forgetting to bring the cue-cards can effectively destroy the entire presentation.
