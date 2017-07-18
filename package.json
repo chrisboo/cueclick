@@ -9,6 +9,9 @@
     "socket.io": "^2.0.3",
     "stream-replace": "^1.0.0"
   },
+  "engines": {
+    "node": "7.2.1"
+  },
   "description": "We hope to facilitate presentations by allowing users to refer to scripts and control slides remotely through their mobile devices.",
   "main": "index.js",
   "scripts": {
