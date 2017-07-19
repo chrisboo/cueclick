@@ -89,6 +89,11 @@ app.post('/secretKey', function(req, res) {
 
 });
 
+// Uploading site verification file for Google's OAuth Developer Authentication form
+app.get('/google8bf6e0ef8b22a71f.html', function(req, res) {
+    res.sendFile(__dirname + '/pages/google8bf6e0ef8b22a71f.html');
+});
+
 // SOCKET IO
 io.on('connection', function (socket) {
 
