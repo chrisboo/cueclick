@@ -1,0 +1,36 @@
+/* -- Background image -- */
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*--Align all contents to center */
+#center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    position: absolute;
+}
+/* --Heading --*/
+h1 {
+  position: relative;
+  font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
+  color: Yellow;
+  height: auto;
+}
+
+/* --Intructions --*/
+ol {
+  position: relative;
+  font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+  color: white;
+  font-size: 1.5vw;
+  height: auto;
+}
