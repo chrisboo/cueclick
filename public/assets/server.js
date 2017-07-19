@@ -36,6 +36,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
+// Serve the favicon file
+app.get('/favicon.ico', function(req, res) {
+    res.sendFile(__dirname + '/favicon.ico');
+});
+
 // Index route -- home page for website and mobile site
 app.get('/', function (req, res) {
 
