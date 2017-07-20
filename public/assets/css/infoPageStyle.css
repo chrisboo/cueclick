@@ -8,7 +8,7 @@ body {
     height: 100vh;
 }
 
-/*--Align all contents to center */
+/*-- Align all contents to center -- */
 #center {
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@ body {
     height: auto;
 }
 
-/* --Intructions --*/
+/* -- Intructions --*/
 ol {
   position: relative;
   font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;

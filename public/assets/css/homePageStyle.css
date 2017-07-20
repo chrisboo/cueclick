@@ -10,21 +10,19 @@ body {
 
 /* -- Style for info button --*/
 #info-button {
-      width: 2.5%;
-      height: auto;
-      border: solid;
-      border-color: white;
-      border-width: 0.1vw;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: fixed;
-      top: 1.5%;
-      right: 1.5%;
-
-  }
-
+    width: 2.5%;
+    height: auto;
+    border: solid;
+    border-color: white;
+    border-width: 0.1vw;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 1.5%;
+    right: 1.5%;
+}
 
 #info-button p {
     font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
@@ -37,7 +35,6 @@ body {
     cursor: pointer;
     border-color: yellow;
 }
-
 
 /* -- Login element -- */
 #center {
@@ -107,6 +104,10 @@ body {
     width: 4.5vw;
     height: 4.5vw;
     position: absolute;
+}
+
+.s-button:hover {
+    cursor: pointer;
 }
 
 /* -- New presentation button -- */
