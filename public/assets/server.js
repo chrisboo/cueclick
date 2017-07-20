@@ -90,11 +90,12 @@ app.post('/secretKey', function(req, res) {
 });
 
 //Instructions page
-
 app.get('/infoPage', function(req, res) {
    res.sendFile(__dirname + '/pages/infoPage.html');
-  });
-
+});
+app.get('/index', function(req, res) {
+   res.sendFile(__dirname + '/pages/index.html');
+});
 
 
 // SOCKET IO
