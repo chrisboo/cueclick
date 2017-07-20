@@ -42,6 +42,13 @@ var pickerApiLoaded = false;
 var presentationId;
 var presentation;
 
+//function to access information page when "?" is clicked
+function openInfoPage(){
+window.open(infoPage.html,'_blank');
+
+}
+
+
 function handleClientLoad() {
     // Load the API client and auth2 library
     gapi.load('client:auth2', initClient);

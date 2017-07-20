@@ -8,6 +8,37 @@ body {
     height: 100vh;
 }
 
+/* -- Style for info button --*/
+#info-button {
+      width: 2.5%;
+      height: auto;
+      border: solid;
+      border-color: white;
+      border-width: 0.1vw;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top: 1.5%;
+      right: 1.5%;
+
+  }
+
+
+#info-button p {
+    font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
+    font-size: 0.5vw;
+    line-height: 0.3vw;
+    color: white;
+}
+
+#info-button:hover {
+    cursor: pointer;
+    border-color: yellow;
+}
+
+
 /* -- Login element -- */
 #center {
     display: flex;

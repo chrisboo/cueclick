@@ -7,6 +7,7 @@ var bottomPresentation = document.getElementById('bottom-presentation');
 var topSignout = document.getElementById('top-button');
 var bottomSignout = document.getElementById('bottom-button');
 
+
 // Make yellow border appear when hovering over 'new presentation' button
 function hoverP() {
     topPresentation.style.display = 'block';

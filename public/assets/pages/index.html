@@ -13,7 +13,10 @@
   </head>
 
   <body>
+    <!-- Add button for getting information on how to use CueClcik -->
+    <span id="info-button" onclick="openInfoPage()"> <p> ? </p></span>
 
+    <!--main elements in sign in page -->
     <div id="center">
       <img id="logo" src="../img/newLogo.png" alt="logo">
       <p id="para">Get ready to control your Google Slides remotely</p>
@@ -23,6 +26,7 @@
     </div>
 
     <div id="side-buttons">
+
           <!-- Add button for picking new presentation -->
         <div id="new-presentation" onclick="openNewPresentation()" onmouseover="hoverP()" onmouseout="unhoverP()">
             <img id="top-presentation" class="s-button" src="../img/newPresentHover.png" alt="newPresentationHover">
@@ -34,6 +38,7 @@
             <img id="top-button" class="s-button" src="../img/signoutButtonHover.png" alt="signoutButtonHover">
             <img id="bottom-button" class="s-button" src="../img/signoutButton.png" alt="signoutButton">
         </div>
+
     </div>
 
     <div id="slides">
@@ -57,6 +62,7 @@
         </iframe>
     </div>
 
+
     <!-- Script for SOCKET.IO -->
     <script src="/socket.io/socket.io.js"></script>
 
@@ -66,11 +72,12 @@
     <!-- Script for moving to next and previous slides -->
     <script src="../js/webControls.js"></script>
 
+    <!-- General script for homePage -->
     <!-- Only begin initializing homePage.js after google API has loaded -->
     <!-- Script for selecting a presentation and displaying the presentation in an iframe -->
     <script src="../js/homePage.js"></script>
 
-    <!-- Script for showing and hiding secret key -->
+    <!-- Script for showing and hiding secret key -->===
     <script src="../js/showSecretKey.js"></script>
 
     <!-- Script for Google API -->

@@ -18,12 +18,21 @@ body {
     height: auto;
     position: absolute;
 }
-/* --Heading --*/
-h1 {
-  position: relative;
-  font-family: "Futura Bold", "Trebuchet MS", Arial, sans-serif;
-  color: Yellow;
-  height: auto;
+
+/* -- CueClick Logo -- */
+#logo {
+    max-width: 90%;
+    width: 90%;
+    height: auto;
+    position: relative;
+}
+
+#para {
+    position: relative;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    color: grey;
+    font-size: 1.5vw;
+    height: auto;
 }
 
 /* --Intructions --*/
