@@ -42,11 +42,10 @@ var pickerApiLoaded = false;
 var presentationId;
 var presentation;
 
-//function to access information page when "?" is clicked
-// function openInfoPage(){
-// window.location.href= "infoPage.html";
-//
-// }
+//link homepage to infoPage
+app.get('/infoPage', function (req, res,html) {
+ res.sendFile(path.join(__dirname+'/infoPage.html'));
+});
 
 
 function handleClientLoad() {
