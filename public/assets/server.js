@@ -89,6 +89,14 @@ app.post('/secretKey', function(req, res) {
 
 });
 
+//Instructions page
+
+app.get('/infoPage', function(req, res) {
+   res.sendFile(__dirname + '/pages/infoPage.html');
+  });
+
+
+
 // SOCKET IO
 io.on('connection', function (socket) {
 

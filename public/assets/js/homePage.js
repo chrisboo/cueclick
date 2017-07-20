@@ -42,11 +42,6 @@ var pickerApiLoaded = false;
 var presentationId;
 var presentation;
 
-//link homepage to infoPage
-app.get('infoPage.html', function (req, res,html) {
- res.sendFile('../pages/infoPage.html');
-});
-
 
 function handleClientLoad() {
     // Load the API client and auth2 library
