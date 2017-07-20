@@ -43,8 +43,8 @@ var presentationId;
 var presentation;
 
 //link homepage to infoPage
-app.get('./infoPage.html', function (req, res,html) {
- res.sendFile(path.join(__dirname+'/infoPage.html'));
+app.get('infoPage.html', function (req, res,html) {
+ res.sendFile('../pages/infoPage.html');
 });
 
 
