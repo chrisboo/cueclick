@@ -43,10 +43,10 @@ var presentationId;
 var presentation;
 
 //function to access information page when "?" is clicked
-function openInfoPage(){
-window.open("infoPage.html",'_blank');
-
-}
+// function openInfoPage(){
+// window.location.href= "infoPage.html";
+//
+// }
 
 
 function handleClientLoad() {
