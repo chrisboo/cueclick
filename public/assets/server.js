@@ -36,6 +36,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
+// Serve the favicon file
+app.get('/favicon.ico', function(req, res) {
+    res.sendFile(__dirname + '/favicon.ico');
+});
+
 // Index route -- home page for website and mobile site
 app.get('/', function (req, res) {
 
@@ -89,12 +94,18 @@ app.post('/secretKey', function(req, res) {
 
 });
 
+
 //Instructions page
 app.get('/infoPage', function(req, res) {
    res.sendFile(__dirname + '/pages/infoPage.html');
 });
 app.get('/index', function(req, res) {
    res.sendFile(__dirname + '/pages/index.html');
+});
+
+// Uploading site verification file for Google's OAuth Developer Authentication form
+app.get('/google8bf6e0ef8b22a71f.html', function(req, res) {
+    res.sendFile(__dirname + '/pages/google8bf6e0ef8b22a71f.html');
 });
 
 
