@@ -44,7 +44,7 @@ var presentation;
 
 //function to access information page when "?" is clicked
 function openInfoPage(){
-window.open(infoPage.html,'_blank');
+window.open("infoPage.html",'_blank');
 
 }
 
