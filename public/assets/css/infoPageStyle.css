@@ -14,32 +14,46 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: auto;
-    position: absolute;
+    width: 60%;
 }
 
 /* -- CueClick Logo -- */
 #logo {
-    max-width: 90%;
-    width: 90%;
+    width: 60%;
     height: auto;
-    position: relative;
 }
 
 #para {
-    position: relative;
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
     color: grey;
     font-size: 1.5vw;
-    height: auto;
 }
 
 /* -- Intructions --*/
 ol {
-  position: relative;
-  font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
-  color: white;
-  font-size: 1.5vw;
-  height: auto;
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    color: white;
+    font-size: 1.5vw;
+}
+
+/* -- Relevant links -- */
+#links {
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    font-size: 1vw;
+    text-align: right;
+    width: 80%;
+    margin-top: 3vw;
+}
+
+#links a {
+    margin-left: 1vw;
+}
+
+#links a:link {
+    color: grey;
+}
+
+#links a:hover {
+    color: white;
+    cursor: pointer;
 }
