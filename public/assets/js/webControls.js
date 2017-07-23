@@ -129,6 +129,8 @@ function updateSyncStatus() {
 // status on the desktop accordingly
 socket.on('mobile client signed in', function(mobileClientId) {
     socket.emit('current script', mobileClientId, currentScript, currentSlideNo, maxSlidesNo);
+    // Hide the secret key once a new mobile client connects
+    hide();
     updateSyncStatus();
 });
 
