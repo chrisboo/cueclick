@@ -51,4 +51,6 @@ body {
     font-size: 4vw;
     color: white;
     overflow-y: auto;
+    text-align: justify;
+    white-space: pre-wrap;
 }
