@@ -104,6 +104,11 @@ app.get('/privacyPolicy', function(req, res) {
     res.sendFile(__dirname + '/pages/privacyPolicy.html');
 });
 
+// About page
+app.get('/about', function(req, res) {
+    res.sendFile(__dirname + '/pages/about.html');
+});
+
 // Uploading site verification file for Google's OAuth Developer Authentication form
 app.get('/google8bf6e0ef8b22a71f.html', function(req, res) {
     res.sendFile(__dirname + '/pages/google8bf6e0ef8b22a71f.html');

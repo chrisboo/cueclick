@@ -57,3 +57,7 @@ ol {
     color: white;
     cursor: pointer;
 }
+
+#links a:visited {
+    color: grey;
+}
