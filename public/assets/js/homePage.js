@@ -120,7 +120,6 @@ function openNewPresentation() {
     if (pickedBefore) {
         // Return the mobile page to the instruction page during the selection
         socket.emit('re-choosing presentation', room);
-        resetIFrame();
     }
     createPicker();
 }
@@ -141,11 +140,27 @@ function createPicker() {
 }
 
 // Callback implementation - get the Presentation object using its ID
+// Alternatively, if no presentation was picked and the Picker is then
+// closed, reload the previous presentation controls
 function pickerCallback(data) {
-      if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+    if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+        resetIFrame();
         var doc = data[google.picker.Response.DOCUMENTS][0];
         presentationId = doc[google.picker.Document.ID];
         getPresentation();
+    } else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
+        reloadSettings();
+    }
+}
+
+// Reload the last presentation controls if a presentation was previoiusly
+// selected in the event that the picker is cancelled and closed
+function reloadSettings() {
+    var pickedBefore = (iframe.style.display != 'none');
+    if (pickedBefore) {
+        socket.emit('picker cancelled', room);
+    } else {
+        socket.emit('re-choosing presentation', room);
     }
 }
 

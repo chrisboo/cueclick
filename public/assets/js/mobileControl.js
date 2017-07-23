@@ -61,6 +61,13 @@ socket.on('re-choosing presentation', function() {
     instructions.style.display = 'block';
 });
 
+// Make the previous script be loaded again if the picker is cancelled
+// without picking a new presentation
+socket.on('picker cancelled', function() {
+    instructions.style.display = 'none';
+    presenterNotes.style.display = 'block';
+});
+
 // Make the page refresh and redirect to the pre-sign in page if any signout
 // occurs on the web client end
 socket.on('web client signed out', function() {

@@ -160,6 +160,12 @@ io.on('connection', function (socket) {
          console.log("rechoosing presentation");
     });
 
+    // Notify all connected clients except sender when the Google Picker is cancelled
+    socket.on('picker cancelled', function(room) {
+        socket.to(room).emit('picker cancelled');
+        console.log("picker cancelled");
+    });
+
     // Notify all connected clients except sender when there are slide changes
     socket.on('next-slide', function(room) {
         socket.to(room).emit('next-slide');
