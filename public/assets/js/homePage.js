@@ -144,10 +144,15 @@ function createPicker() {
 // closed, reload the previous presentation controls
 function pickerCallback(data) {
     if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
-        resetIFrame();
         var doc = data[google.picker.Response.DOCUMENTS][0];
-        presentationId = doc[google.picker.Document.ID];
-        getPresentation();
+        // If a new presentation is chosen, load it
+        if (doc[google.picker.Document.ID] != presentationId) {
+            presentationId = doc[google.picker.Document.ID];
+            resetIFrame();
+            getPresentation();
+        } else {
+            reloadSettings();
+        }
     } else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
         reloadSettings();
     }
