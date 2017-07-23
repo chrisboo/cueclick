@@ -4,9 +4,6 @@
     - Changing iframe contents according to mobile navigations
 */
 
-// Keeps track of the number of mobile clients connected to the web client
-var mobileClientCount;
-
 // Default url for any presentation
 var defaultUrl;
 // An array of all the slides in the chosen presentation
@@ -123,10 +120,9 @@ function slideChange() {
 
 // Update the sync status whenever a new mobile client connects
 function updateSyncStatus() {
-    mobileClientCount++;
-    syncInner.innerHTML = "SYNCED: (" + mobileClientCount + ")";
+    syncInner.innerHTML = "SYNCED";
     statusBox.style.borderColor = "yellow";
-}
+};
 
 // Whenever a new mobile client signs in, send the script for the current slide to new client
 // Also, increment the counter for number of connected mobile clients, and change the sync
@@ -169,5 +165,5 @@ socket.on('previous-slide', function() {
             }
         }
     }
-    
+
 });
