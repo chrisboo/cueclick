@@ -67,7 +67,7 @@ form.login {
 
 #showHide p {
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
-    font-size: 2vw;
+    font-size: 3vw;
     color: yellow;
 }
 
@@ -97,4 +97,33 @@ form.login p {
     max-width: 100%;
     height: auto;
     line-height: 2%;
+}
+
+/* -- Link to instructions -- */
+#help {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 100%;
+    text-align: right;
+}
+
+#help a {
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+    font-size: 3vw;
+    color: grey;
+}
+
+#help a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#help a.visted {
+    color: grey;
+}
+
+#help a.visited:hover {
+    color: white;
+    cursor: pointer;
 }
