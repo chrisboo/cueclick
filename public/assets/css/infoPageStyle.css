@@ -46,16 +46,11 @@ ol {
     color: grey;
 }
 
-#links a:hover {
-    color: white;
-    cursor: pointer;
-}
-
 #links a:visited {
     color: grey;
 }
 
-#links a:visted:hover {
+#links a:hover {
     color: white;
     cursor: pointer;
 }
