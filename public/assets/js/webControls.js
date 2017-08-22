@@ -20,7 +20,7 @@ var room;
 // TEMPORARY solution: make each web client join a room that is a substring of its id
 socket.on('connect', function() {
     socketId = socket.id;
-    room = socketId.substr(0, socketId.length - 2);
+    room = socketId.substr(0, 7);
     socket.emit('room', room);
 });
 

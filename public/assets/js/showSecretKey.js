@@ -1,6 +1,6 @@
 //Shows the secret key when it is hidden
 function show() {
-    secret.innerHTML = socketId;
+    secret.innerHTML = socketId.substr(0, 7);
     secretBox.style.borderColor = "yellow";
 }
 

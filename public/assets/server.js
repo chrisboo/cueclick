@@ -123,16 +123,16 @@ io.on('connection', function (socket) {
         console.log(clients);
     });
 
-    // Store web client id whenever a new web client connects
+    // Store web client id substring whenever a new web client connects
     socket.on('web client signed in', function(id) {
         console.log("web client connected: " + id);
-        webClients.push(id);
+        webClients.push(id.substr(0, 7));
     });
 
     // Remove web client id whenever a web client disconnects
     socket.on('web client signed out', function(id, room) {
         console.log("web client disconnected: " + id);
-        var indexToRemove = webClients.indexOf(id);
+        var indexToRemove = webClients.indexOf(id.substr(0, 7));
         webClients.splice(indexToRemove, 1);
         socket.to(room).emit('web client signed out');
     });
