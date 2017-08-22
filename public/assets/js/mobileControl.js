@@ -5,7 +5,7 @@ var presenterNotes = document.getElementById('note');
 var socket = io.connect('/');
 
 // TEMPORARY room
-var room = webClientId.substr(0, 7);
+var room = webClientId;
 
 // Once socket has connected, join it to the web client room
 socket.on('connect', function() {
