@@ -46,9 +46,12 @@ By mid-late July, a working prototype will be completed, fulfilling the second m
 - Automatically 'sign out' all connected users and redirect them to secret key login page whenever the corresponding web client has signed out on desktop
 
 #### Overall
-- Improved UI
+- Improved UI - shortened secret key, and improved design
+- Improved user friendliness - instructions and about pages are now provided
 
 ## Instructions -- How to run the code
+
+A demo is currently available at https://cueclick.herokuapp.com.
 
 To test the currently available code, make sure that you do the following after cloning it:
 
@@ -66,17 +69,12 @@ To test the currently available code, make sure that you do the following after 
    This is because we have yet to submit this form: https://support.google.com/code/contact/oauth_app_verification which will be done at a
    later date after deployment
    - Update the code with the respective client key and API key (meaning the code in `homePage.js` which is in the `js` folder
-   - Go to the terminal/command line, and type in the following commands:
-        - `npm install express`
-        - `npm install express-static`
-        - `npm install socket.io`
-
-Alternatively, simply type `npm install` while in the project folder since the dependencies are already stated in `package.json`
+   - Go to the terminal/command line, and type `npm install` while in the project folder since the dependencies are already stated in `package.json`
 
    - To run the code, go to the terminal and type `node server.js` (make sure you are in the correct directory, i.e. the `assets` folder)
    - Go to `localhost:8000` to see the result on your desktop
-   - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address,
-   along with the port (e.g. 129.168.1.209:8000) to see the mobile site
+   - Now, you can also go to your mobile phone, and enter the corresponding ipv4 address (from
+   desktop), along with the port (e.g. 129.168.1.209:8000) to see the mobile site
 
 ## Known issues and bugs
 
@@ -88,7 +86,7 @@ time we touch the code. Here is a growing list of identified bugs thus far:
 - If a user closes the window that pops up during Google login, the web console will throw an error
 - If a user repeatedly refreshes the mobile client page after logging in successfully with the
 secret key, the number of connected clients detected will simply keep increasing
-- The connection is not secure, which triggers browser warnings
+~~- The connection is not secure, which triggers browser warnings~~
 
 #### Presentation
 
@@ -97,10 +95,10 @@ will fail. Due to cross-origins issues, it is hard to determine when the locatio
 content has changed
 - The iframe is currently at a fixed width and height, which may be inconvenient for smaller
 desktops/laptops/tablets. However, the current solution is hard-coded (i.e. the presentation is retrieved via an embed link) so there is little choice to resolve this at the moment
-- Presentations which appear in Google Drive but are not already in Google Slides format cannot
-be accessed via the web-application, and will throw an error
-- If a user closes the Google Picker without re-choosing a new presentation, the script for the
-old presentation does not reappear. Instead, the mobile client will be stuck at the instructions page
+~~- Presentations which appear in Google Drive but are not already in Google Slides format cannot
+be accessed via the web-application, and will throw an error~~
+~~- If a user closes the Google Picker without re-choosing a new presentation, the script for the
+old presentation does not reappear. Instead, the mobile client will be stuck at the instructions page~~
 
 #### Sign out
 
