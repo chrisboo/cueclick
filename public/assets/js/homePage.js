@@ -158,7 +158,7 @@ function pickerCallback(data) {
     }
 }
 
-// Reload the last presentation controls if a presentation was previoiusly
+// Reload the last presentation controls if a presentation was previously
 // selected in the event that the picker is cancelled and closed
 function reloadSettings() {
     var pickedBefore = (iframe.style.display != 'none');

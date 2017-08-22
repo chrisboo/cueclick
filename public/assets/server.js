@@ -162,7 +162,7 @@ io.on('connection', function (socket) {
     // Notify all connected clients except sender when a new presentation is being selected
     socket.on('re-choosing presentation', function(room) {
         socket.to(room).emit('re-choosing presentation');
-         console.log("rechoosing presentation");
+        console.log("rechoosing presentation");
     });
 
     // Notify all connected clients except sender when the Google Picker is cancelled
