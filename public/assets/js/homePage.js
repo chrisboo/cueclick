@@ -128,7 +128,6 @@ function openNewPresentation() {
 // Create and render a Picker object for picking user slides
 function createPicker() {
     if (pickerApiLoaded && oauthToken) {
-      isInitialised = false;
       var view = new google.picker.View(google.picker.ViewId.PRESENTATIONS).
         setMimeTypes('application/vnd.google-apps.presentation');
       var picker = new google.picker.PickerBuilder().
