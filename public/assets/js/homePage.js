@@ -116,6 +116,7 @@ function handleSignoutClick(event) {
 
 // Reopen a new picker for selecting another presentation
 function openNewPresentation() {
+    isInitialised = false;
     var pickedBefore = (iframe.style.display != 'none');
     if (pickedBefore) {
         // Return the mobile page to the instruction page during the selection
@@ -127,6 +128,7 @@ function openNewPresentation() {
 // Create and render a Picker object for picking user slides
 function createPicker() {
     if (pickerApiLoaded && oauthToken) {
+      isInitialised = false;
       var view = new google.picker.View(google.picker.ViewId.PRESENTATIONS).
         setMimeTypes('application/vnd.google-apps.presentation');
       var picker = new google.picker.PickerBuilder().
@@ -143,6 +145,7 @@ function createPicker() {
 // Alternatively, if no presentation was picked and the Picker is then
 // closed, reload the previous presentation controls
 function pickerCallback(data) {
+    isInitialised = true;
     if(data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
         var doc = data[google.picker.Response.DOCUMENTS][0];
         // If a new presentation is chosen, load it
