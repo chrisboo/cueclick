@@ -86,7 +86,7 @@ time we touch the code. Here is a growing list of identified bugs thus far:
 - If a user closes the window that pops up during Google login, the web console will throw an error
 - If a user repeatedly refreshes the mobile client page after logging in successfully with the
 secret key, the number of connected clients detected will simply keep increasing
-~~- The connection is not secure, which triggers browser warnings~~
+- ~~The connection is not secure, which triggers browser warnings~~
 
 #### Presentation
 
@@ -95,9 +95,9 @@ will fail. Due to cross-origins issues, it is hard to determine when the locatio
 content has changed
 - The iframe is currently at a fixed width and height, which may be inconvenient for smaller
 desktops/laptops/tablets. However, the current solution is hard-coded (i.e. the presentation is retrieved via an embed link) so there is little choice to resolve this at the moment
-~~- Presentations which appear in Google Drive but are not already in Google Slides format cannot
+- ~~Presentations which appear in Google Drive but are not already in Google Slides format cannot
 be accessed via the web-application, and will throw an error~~
-~~- If a user closes the Google Picker without re-choosing a new presentation, the script for the
+- ~~If a user closes the Google Picker without re-choosing a new presentation, the script for the
 old presentation does not reappear. Instead, the mobile client will be stuck at the instructions page~~
 
 #### Sign out
